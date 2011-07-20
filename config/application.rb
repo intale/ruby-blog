@@ -38,5 +38,8 @@ module RubyBlog
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.to_prepare do
+      Devise::SessionsController.layout proc { |controller| resource_name == :admin ? false : 'application' }
+    end
   end
 end
