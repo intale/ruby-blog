@@ -1,0 +1,78 @@
+!!!
+%html{:dir => "ltr", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %title RubyBlog
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "description"}/
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    / main styles
+    .main.index
+      .main1
+        / H E A D E R  start
+        .header
+          %a.logo{:href => "#"}
+          / h-menu start
+          .h-menu
+            %ul
+              %li
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#"} Contact
+              %li
+                %a{:href => "#"} Submit
+              %li
+                %a{:href => "#"} About Us
+          / h-menu end
+        / H E A D E R  end
+        / C O N T E N T  start
+        .content
+          = yield
+          .right
+            %h3 Categories
+            .r-menu
+              %ul
+                %li
+                  %a{:href => "#"} Documentation
+                %li
+                  %a{:href => "#"} General
+                %li
+                  %a{:href => "#"} Horizon
+                %li
+                  %a{:href => "#"} Jobs
+                %li
+                  %a{:href => "#"} Launches
+                %li
+                  %a{:href => "#"} Praise
+                %li
+                  %a{:href => "#"} Releases
+                %li
+                  %a{:href => "#"} Sightings
+                %li
+                  %a{:href => "#"} Tricks
+                %li
+                  %a{:href => "#"} Edge
+                %li
+                  %a{:href => "#"} Activism
+            %h3 Worth attention
+            .r-menu
+              %ul
+                %li
+                  %a{:href => "#"} Workshops
+                %li
+                  %a{:href => "#"} Ruby5 Podcast
+                %li
+                  %a{:href => "#"} Ruby Show
+                %li
+                  %a{:href => "#"} RoR Podcast
+          / R I G H T
+          .clear
+        / C O N T E N T  end
+    / /main styles
+    / F O O T E R  start
+    .footer
+      \© Copyright 2009-2011 Face IT
+    / F O O T E R  end

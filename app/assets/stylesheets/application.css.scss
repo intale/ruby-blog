@@ -41,7 +41,7 @@ img {
 
 h1, h2 {
   color: #000;
-  background: url("../images/item.png") 8px 2px no-repeat;
+  background: url("item.png") 8px 2px no-repeat;
   border-bottom: 1px solid #999;
   font-weight: normal;
   padding: 0px 10px 5px 45px;
@@ -54,7 +54,7 @@ h1 a, h2 a {
 
 h3, h4, h5, h6 {
   color: #000;
-  background: url("../images/item-r.png") 8px 2px no-repeat;
+  background: url("item-r.png") 8px 2px no-repeat;
   border-bottom: 1px solid #999;
   border-right: 3px solid #999;
   margin: 0 0 6px 0;
@@ -95,7 +95,7 @@ input, select, textarea {
 
 .main {
   min-height: 100%;
-  background: url("../images/bk.gif") 0 bottom repeat-x white; }
+  background: url("bk.gif") 0 bottom repeat-x white; }
 
 .main1 {
   position: relative;
@@ -111,7 +111,7 @@ input, select, textarea {
   height: 20px;
   padding: 142px 0 0 0;
   position: relative;
-  background: url("../images/top.png") center 124px no-repeat; }
+  background: url("top.png") center 124px no-repeat; }
 
 .logo {
   left: 238px;
@@ -120,7 +120,7 @@ input, select, textarea {
   width: 505px;
   height: 107px;
   display: block;
-  background: url("../images/logo.png") no-repeat; }
+  background: url("logo.png") no-repeat; }
 
 /* ----- h-menu ----- */
 
@@ -146,7 +146,7 @@ input, select, textarea {
 
 .content {
   position: relative;
-  background: url("../images/bk.png") repeat-y;
+  background: url("bk.png") repeat-y;
   padding: 0 0 60px 0;
   height: 1%; }
 
@@ -187,7 +187,7 @@ input, select, textarea {
     list-style: none; }
   li {
     margin: 0 0 2px 0;
-    background: url("../images/r-menu.gif") 0 bottom repeat-x;
+    background: url("r-menu.gif") 0 bottom repeat-x;
     padding: 0 5px 7px 5px;
     line-height: 17px;
     &:last-child {
@@ -223,7 +223,7 @@ input, select, textarea {
   position: relative;
   margin: 0 auto;
   margin-top: -50px;
-  background: url("../images/footer.png") no-repeat;
+  background: url("footer.png") no-repeat;
   height: 32px;
   width: 922px;
   padding: 18px 0 0 0;

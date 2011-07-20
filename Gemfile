@@ -11,8 +11,10 @@ gem 'pg'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
-
+gem 'therubyracer', '= 0.8.2'
 gem 'jquery-rails'
+gem 'devise'
+gem 'haml'
 
 # Use unicorn as the web server
 # gem 'unicorn'
