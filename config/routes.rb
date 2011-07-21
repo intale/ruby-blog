@@ -1,5 +1,5 @@
 RubyBlog::Application.routes.draw do
-  devise_for :admins
+  devise_for :admin
 
   root :to => 'users#index'
   resources :admins, :module => :administration, :only => :index

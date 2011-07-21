@@ -1,1 +1,33 @@
-Welcome to admin panel
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", "#"
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", "#"
+  .content
+    %h2.title
+      = t("web-app-theme.all", :default => "All")
+      Admins
+    .inner
+      %table.table
+        %tr
+          %th.first ID
+          %th
+            = t("activerecord.attributes.administration_admin.nick", :default => t("activerecord.labels.nick", :default => "Nick"))
+          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th.last &nbsp;
+        - @admins.each do |admin|
+          %tr{:class => cycle("odd", "even")}
+            %td
+              = admin.id
+            %td
+              = link_to admin.nick, "#"
+            %td
+              = admin.created_at
+            %td.last
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", "#"
+              |
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", "#"} |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", "#", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+      .actions-bar.wat-cf
+        .actions
+- content_for :sidebar, render(:partial => 'sidebar')

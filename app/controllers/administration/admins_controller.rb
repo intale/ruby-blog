@@ -1,7 +1,7 @@
 class Administration::AdminsController < Administration::MainController
 
   def index
-    puts 1
+    @admins=Admin.all
   end
 
 end
