@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110722120323) do
+ActiveRecord::Schema.define(:version => 20110722130022) do
 
   create_table "admins", :force => true do |t|
     t.string   "nick"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(:version => 20110722120323) do
   create_table "posts_tags", :force => true do |t|
     t.integer "post_id"
     t.integer "tag_id"
+  end
+
+  create_table "session_logs", :force => true do |t|
+    t.integer "post_id"
+    t.integer "comment_id"
+    t.text    "session_uid"
   end
 
   create_table "tags", :force => true do |t|
