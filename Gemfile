@@ -18,7 +18,7 @@ gem 'devise'
 gem 'haml'
 gem 'ruby_parser'
 gem 'hpricot'
-
+gem 'will_paginate', :git => "git://github.com/JackDanger/will_paginate.git"
 
 # Use unicorn as the web server
 # gem 'unicorn'

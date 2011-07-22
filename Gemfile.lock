@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/JackDanger/will_paginate.git
+  revision: e97acba1b94f2a6d19d5a271ddfa5ebc80d3d822
+  specs:
+    will_paginate (2.3.15)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -133,3 +139,4 @@ DEPENDENCIES
   turn
   uglifier
   web-app-theme
+  will_paginate!
