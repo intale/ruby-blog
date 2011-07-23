@@ -2,12 +2,12 @@
   - @posts.each do |post|
     .item
       %h2
-        =link_to post.subject, "#"
+        =link_to post.subject, show_post_comments_path(post)
       .by
         ="Posted by #{post.admin.nick}@#{post.created_at}"
       =post.message.first(100)
       .more
-        =link_to "Read More", "#"
+        =link_to "Read More", show_post_comments_path(post)
   .pager
     =will_paginate @posts, :class => "pager", :previous_label => '', :next_label => '', :separator => ' - '
     .clear

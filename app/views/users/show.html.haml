@@ -1,0 +1,10 @@
+.center
+  .item
+    %h2
+      = @post.subject
+  - @comments.each do |comment|
+    .more
+      =comment.content
+
+    .clear
+  .clear
