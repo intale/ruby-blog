@@ -6,5 +6,8 @@ RubyBlog::Application.routes.draw do
     get "/post/:id" => "users#show", :as => :show_post_comments
   end
 
-  resources :admins, :module => :administration, :only => :index
+  namespace :administration do
+    resources :admins, :only => :index
+    resources :posts
+  end
 end

@@ -1,0 +1,34 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "List", administration_posts_path
+      %li= link_to "New", "#"
+      %li.active= link_to "Edit", edit_administration_post_path(@post)
+  .content
+    %h2.title
+      = @post.subject
+    .inner
+      .table= form_for @post, :url => administration_post_path(@post) do |f|
+        = f.label "Subject:"
+        = f.text_field :subject
+
+      %table.table
+        %tr
+          %th Subject
+          %th= "Created at"
+          %th.last &nbsp;
+        - @posts.each do |post|
+          %tr{:class => cycle("odd", "even")}
+            %td
+              = post.subject
+            %td
+              = post.created_at
+            %td.last
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", "#"
+              |
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_administration_post_path(post)}
+              |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", "#", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+      .actions-bar.wat-cf
+        .actions
+- content_for :sidebar, render(:partial => 'sidebar')
