@@ -7,5 +7,4 @@ class Admin < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
 
   has_many :posts
-  has_many :comments
 end
