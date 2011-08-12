@@ -33,7 +33,7 @@
           = yield
           #footer
             .block
-              %p
-                Copyright &copy; #{Time.now.year} Ruby Blog admin panel.
+              %p{:style => "text-align: center;"}
+                Copyright &copy; #{Time.now.year} #{link_to "Max Dolgih", "https://github.com/hiddenfile"} & #{link_to "Ivan Dzyzenko", "https://github.com/intale"}
         #sidebar
           = yield :sidebar

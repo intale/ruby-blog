@@ -39,7 +39,8 @@
                   Update:
                 = l(comment.updated_at,:format => :short)
               %p
-                \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", "#"} |
+                \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", "#"}
+                |
                 \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", "#", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
 
 - content_for :sidebar, render(:partial => 'sidebar')
