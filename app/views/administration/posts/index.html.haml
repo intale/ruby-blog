@@ -19,7 +19,7 @@
             %td
               = post.created_at
             %td.last
-              = link_to "#{t("web-app-theme.show", :default => "Show")}", "#"
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_post_path(post)
               |
               \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_administration_post_path(post)}
               |

@@ -1,0 +1,19 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "List", administration_posts_path
+      %li= link_to "New", "#"
+      %li.active= link_to "Show", administration_post_path(@post)
+  .content
+    %h2.title
+      = @post.subject
+    .inner
+      .table
+        .group
+          =@post.subject
+        .group
+          =raw @post.message
+
+      .actions-bar.wat-cf
+        .actions
+- content_for :sidebar, render(:partial => 'sidebar')
