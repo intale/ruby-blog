@@ -13,7 +13,33 @@
           =@post.subject
         .group
           =raw @post.message
+    .inner
+      %table.table
+        %tr
+          %th.first Content
+          %th.last &nbsp;
+        - @post.comments.each do |comment|
+          %tr{:class => cycle("odd", "even")}
+            %td= comment.content
+            %td.last.show-comments
+              %p
+                %strong
+                  ID:
+                = comment.id
+              %p
+                %strong
+                  Author:
+                = comment.author
+              %p
+                %strong
+                  Create:
+                = l(comment.created_at,:format => :short)
+              %p
+                %strong
+                  Update:
+                = l(comment.updated_at,:format => :short)
+              %p
+                \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", "#"} |
+                \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", "#", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
 
-      .actions-bar.wat-cf
-        .actions
 - content_for :sidebar, render(:partial => 'sidebar')
