@@ -5,7 +5,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def edit
-    @post = Post.includes(:comments).find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
@@ -15,7 +15,23 @@ class Administration::PostsController < Administration::MainController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:comments).find(params[:id])
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(params[:post])
+
+    if @post.save
+      flash[:notice] = "Post successfully saved"
+      redirect_to administration_post_path(@post)
+    else
+      flash[:notice] = "All fields should not be null"
+      render :action => :new
+    end
   end
 
 end
