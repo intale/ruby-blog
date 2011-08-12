@@ -1,0 +1,9 @@
+.group
+  = f.label "Subject:"
+  = f.text_field :subject
+.group
+  = f.label "Message:"
+  = f.cktext_area :message
+.group.navform.wat-cf
+  = f.submit "Save"
+  = link_to "Cancel", administration_posts_path

@@ -2,23 +2,14 @@
   .secondary-navigation
     %ul.wat-cf
       %li.first= link_to "List", administration_posts_path
-      %li= link_to "New", "#"
+      %li= link_to "New", new_administration_post_path
       %li.active= link_to "Edit", edit_administration_post_path(@post)
   .content
     %h2.title
       = @post.subject
     .inner
       = form_for @post, :url => administration_post_path(@post) do |f|
-        .group
-          = f.label "Subject:"
-          = f.text_field :subject
-        .group
-          = f.label "Message:"
-          = f.cktext_area :message
-        .group.navform.wat-cf
-          = f.submit "Save"
-          = link_to "Cancel", administration_posts_path
-
+        = render :partial => 'form', :locals => {:f => f}
       .actions-bar.wat-cf
         .actions
 - content_for :sidebar, render(:partial => 'sidebar')
