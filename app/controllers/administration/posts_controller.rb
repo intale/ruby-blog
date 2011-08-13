@@ -34,4 +34,14 @@ class Administration::PostsController < Administration::MainController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:notice] = "Destroyed successfully"
+    else
+      flash[:notice] = "Error occurred while trying to delete post with id #{@post.id}"
+    end
+    redirect_to administration_posts_path
+  end
+
 end
