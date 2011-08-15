@@ -6,3 +6,4 @@ tmp/
 .idea/*
 nbproject/*
 config/database.yml
+public/ckeditor_assets/*
