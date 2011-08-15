@@ -37,6 +37,7 @@ module RubyBlog
     config.filter_parameters += [:password]
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.autoload_paths << File.join(config.root, "lib")
     # Enable the asset pipeline
     config.assets.enabled = true
     config.to_prepare do
