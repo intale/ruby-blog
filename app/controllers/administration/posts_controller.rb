@@ -29,7 +29,7 @@ class Administration::PostsController < Administration::MainController
       flash[:notice] = "Post successfully saved"
       redirect_to administration_post_path(@post)
     else
-      flash[:notice] = "All fields should not be null"
+      flash[:error] = "All fields should not be null"
       render :action => :new
     end
   end
