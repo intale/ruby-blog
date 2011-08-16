@@ -1,0 +1,14 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "List", "#"
+      %li.active= link_to "Edit", edit_administration_comment_path(@comment)
+  .content
+    %h2.title
+      Edit comment
+    .inner
+      = form_for @comment, :url => administration_comment_path(@comment) do |f|
+        = render :partial => 'form', :locals => {:f => f, :post => @comment.post}
+      .actions-bar.wat-cf
+        .actions
+- content_for :sidebar, render(:partial => 'sidebar')

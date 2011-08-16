@@ -1,24 +1,16 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first= link_to "List", administration_posts_path
-      %li= link_to "New", new_administration_post_path
-      %li.active= link_to "Show", administration_post_path(@post)
+      %li.first.active= link_to "List", "#"
   .content
     %h2.title
-      = @post.subject
-    .inner
-      .table
-        .group
-          =@post.subject
-        .group
-          =raw @post.message
+      All Comments
     .inner
       %table.table
         %tr
           %th.first Comments
           %th.last &nbsp;
-        - @post.comments.each do |comment|
+        - @comments.each do |comment|
           %tr{:class => cycle("odd", "even")}
             %td= comment.content
             %td.last.show-comments
@@ -26,6 +18,14 @@
                 %strong
                   ID:
                 = comment.id
+              %p
+                %strong
+                  Post ID:
+                = comment.post.id
+              %p
+                %strong
+                  Post Subject:
+                = comment.post.subject
               %p
                 %strong
                   Author:
@@ -43,4 +43,5 @@
                 |
                 \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", "#", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
 
+    = will_paginate @comments
 - content_for :sidebar, render(:partial => 'sidebar')

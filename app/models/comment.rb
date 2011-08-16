@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  attr_protected :post_id
   belongs_to :post
 
   validates :content, :post_id, :author, :presence => true

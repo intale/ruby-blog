@@ -24,6 +24,7 @@
           %ul.wat-cf
             %li{has_active_class?(administration_admins_path)}= link_to "Admins", administration_admins_path
             %li{has_active_class?(administration_posts_path)}= link_to "Posts",administration_posts_path
+            %li{has_active_class?(administration_comments_path)}= link_to "Comments", administration_comments_path
       #wrapper.wat-cf
         .flash
           - flash.each do |type, message|
