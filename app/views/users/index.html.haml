@@ -5,7 +5,8 @@
         =link_to post.subject, show_post_comments_path(post)
       .by
         ="Posted by #{post.admin.nick}@#{post.created_at}"
-      =post.message.first(100)
+      = raw truncate_html(post.message)
+      .clear
       .more
         =link_to "Read More", show_post_comments_path(post)
   .pager
