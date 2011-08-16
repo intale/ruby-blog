@@ -21,6 +21,7 @@ gem 'hpricot'
 gem 'will_paginate', :git => "git://github.com/JackDanger/will_paginate.git"
 gem "ckeditor"
 gem "paperclip", "= 2.3.12"
+gem "nokogiri", :require => 'nokogiri'
 # Use unicorn as the web server
 # gem 'unicorn'
 
