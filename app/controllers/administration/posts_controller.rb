@@ -23,7 +23,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = current_admin.posts.build(params[:post])
 
     if @post.save
       flash[:notice] = "Post successfully saved"
