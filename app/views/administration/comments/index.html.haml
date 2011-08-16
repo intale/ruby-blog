@@ -25,7 +25,7 @@
               %p
                 %strong
                   Post Subject:
-                = comment.post.subject
+                = link_to comment.post.subject, administration_post_path(comment.post)
               %p
                 %strong
                   Author:
