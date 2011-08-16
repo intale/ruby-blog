@@ -14,9 +14,16 @@ class Administration::CommentsController < Administration::MainController
       flash[:notice] = "Comment updated successfully"
       redirect_to administration_post_path(@comment.post)
     else
-      flash[:notice] = "Error raised while comment's update'"
+      flash[:error] = "Error raised while comment's update'"
       render :action => :edit
     end
+  end
+
+  def destroy
+    @comment=Comment.find(params[:id])
+    @comment.destroy
+    flash[:notice] = "Comment deleted successfully"
+    redirect_to administration_post_path(@comment.post)
   end
 
 end

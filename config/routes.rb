@@ -9,6 +9,6 @@ RubyBlog::Application.routes.draw do
   namespace :administration do
     resources :admins, :only => :index
     resources :posts
-    resources :comments, :only => [:edit, :update, :index]
+    resources :comments, :except => [:new, :create]
   end
 end
