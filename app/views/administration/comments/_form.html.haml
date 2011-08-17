@@ -1,9 +1,9 @@
 .group
-  = f.label "Content:"
-  = f.text_field :content
-.group
   = f.label "Author:"
-  = f.text_field :author
+  = f.text_field :author, :value => @comment.author || current_admin.nick
+.group
+  = f.label "Content:"
+  = f.text_area :content
 .group.navform.wat-cf
   = f.submit "Save"
   = link_to "Cancel", administration_post_path(post)
