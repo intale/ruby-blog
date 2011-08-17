@@ -17,6 +17,23 @@
         .avatar
           %span
         .message
-          = comment.content
+          %span
+            = comment.content
         .clear
+  .clear
+  .comments
+    %h2
+      Leave a comment
+    .comment
+      = form_for :comment, :url => create_comment_path do |f|
+        %strong
+          =f.label :author
+          =f.text_field :author
+        .avatar
+          %span
+        .message
+          =f.text_area :content
+        .submit
+          =f.submit :save
+          .clear
   .clear

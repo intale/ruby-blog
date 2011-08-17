@@ -25,8 +25,13 @@
 }
 .comment .message {
     float: left;
-    width: 550px;
+    width: 558px;
     margin-top: 15px;
+}
+
+.comment .message span {
+    overflow: auto;
+    display: block;
 }
 
 .comments .avatar span {
@@ -38,4 +43,19 @@
   -moz-border-radius: 11px;
   -webkit-border-radius: 11px;
   display: block;
+}
+
+.submit input {
+  border: 1px solid #ccc;
+  height: 20px;
+  line-height: 19px;
+  padding: 0 10px;
+  width: 80px;
+  float: right;
+  margin-top: 5px;
+}
+.comment .message #comment_content{
+    width: 100% !important;
+    height: 122px !important;
+    overflow: none;
 }

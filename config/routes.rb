@@ -4,6 +4,7 @@ RubyBlog::Application.routes.draw do
   root :to => 'users#index'
   scope "/" do
     get "/post/:id" => "users#show", :as => :show_post_comments
+    post "/post/:id" => "users#create", :as => :create_comment
   end
 
   namespace :administration do

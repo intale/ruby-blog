@@ -9,4 +9,11 @@ class UsersController < ApplicationController
     @comments = @post.comments
   end
 
+  def create #need to rewrite
+    @comment = Post.find(params[:id]).comments.build(params[:comment])
+    @comment.save
+    redirect_to :back
+
+  end
+
 end
