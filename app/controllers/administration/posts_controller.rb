@@ -1,15 +1,15 @@
 class Administration::PostsController < Administration::MainController
 
+  before_filter :find_post, :only => [:edit, :update, :destroy]
+
   def index
     @posts = Post.includes(:admin).paginate(:per_page => 20, :page => params[:page])
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.update_attributes(params[:post])
     redirect_to administration_post_path
   end
@@ -24,7 +24,6 @@ class Administration::PostsController < Administration::MainController
 
   def create
     @post = current_admin.posts.build(params[:post])
-
     if @post.save
       flash[:notice] = "Post successfully saved"
       redirect_to administration_post_path(@post)
@@ -35,10 +34,15 @@ class Administration::PostsController < Administration::MainController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "Destroyed successfully"    
     redirect_to administration_posts_path
+  end
+
+  private
+
+  def find_post
+    @post = Post.find(params[:id])
   end
 
 end
