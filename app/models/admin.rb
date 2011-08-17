@@ -2,12 +2,11 @@ class Admin < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :nick
 
   has_many :posts
   validates :password, :confirmation => true, :if => :password_required?
-  validates :nick, :presence => true
-  validates :username, :email,
+  validates :username, :email, :nick,
             :presence => true,
             :length => {:minimum => 3, :maximum => 20},
             :uniqueness => { :case_sensitive => false }
