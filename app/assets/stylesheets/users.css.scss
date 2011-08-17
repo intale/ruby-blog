@@ -2,7 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.users {
-  // Add the users class to your body tag
-  // Then, place scoped styles here.
+.comments h2 {
+  font-size: 14pt;
+  color: #525051;
+  background: none;
+  padding: 0 10px 5px 15px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.comments .avatar {
+  float: left;
+  margin-right: 10px;
+}
+.comment strong{
+  font-size: 12px;
+  padding-bottom: 4px;
+}
+.comment {
+    border-bottom: 1px solid #d7d7d7;
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
+.comment .message {
+    float: left;
+    width: 550px;
+    margin-top: 15px;
+}
+
+.comments .avatar span {
+  width: 75px;
+  height: 73px;
+  background-image: url(/assets/no-avatar.gif);
+  border: 1px solid #ccc;
+  border-radius: 11px;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  display: block;
 }

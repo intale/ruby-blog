@@ -2,9 +2,21 @@
   .item
     %h2
       = @post.subject
-  - @comments.each do |comment|
+    .by
+      ="Posted by #{@post.admin.nick}@#{@post.created_at}"
+    = raw @post.message
     .more
-      =comment.content
-
-    .clear
+      &nbsp;
+  .comments
+    %h2
+      Comments
+    - @comments.each do |comment|
+      .comment
+        %strong
+          = "#{comment.author} | #{l(comment.created_at, :format => :long)}"
+        .avatar
+          %span
+        .message
+          = comment.content
+        .clear
   .clear
