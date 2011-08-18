@@ -68,3 +68,15 @@
 .errors {
   background-color: Salmon;
 }
+
+.captcha_field input, .captcha_field img{
+  float: left;
+}
+.captcha_field img{
+  margin: 0 10px 0 87px;
+}
+.captcha_field input{
+  height: 20px;
+  width: 110px;
+  margin-top: 8px;
+}
