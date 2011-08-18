@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     @comment = @post.comments.build(params[:comment])
     @comment.current_admin = current_admin
     if @comment.save
-      render :partial => "comment", :locals => {:comment => @comment}
+      render :json => {:comment => render_to_string(:partial => "comment", :locals => {:comment => @comment}), :captcha => render_to_string(:partial => "captcha")}
     else
-      render :json => @comment.errors
+      render :json => {:errors => @comment.errors, :captcha => render_to_string(:partial => "captcha")}
     end
   end
 
