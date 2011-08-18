@@ -18,17 +18,17 @@
           %span
         .message
           %span
-            = comment.content
+            = simple_format(comment.content)
         .clear
   .clear
   .comments
     %h2
       Leave a comment
     .comment
-      = form_for :comment, :url => create_comment_path do |f|
+      = form_for :comment, :url => create_comment_path, :html => {:id => "comment"} do |f|
         %strong
           =f.label :author
-          =f.text_field :author
+          =f.text_field :author, :value => current_admin.try(:nick)
         .avatar
           %span
         .message

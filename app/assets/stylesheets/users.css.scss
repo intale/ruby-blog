@@ -34,6 +34,11 @@
     display: block;
 }
 
+.comment .message p{
+   padding: 0 0 10px 0;
+   text-indent: 0;
+}
+
 .comments .avatar span {
   width: 75px;
   height: 73px;
@@ -58,4 +63,8 @@
     width: 100% !important;
     height: 122px !important;
     overflow: none;
+}
+
+.errors {
+  background-color: Salmon;
 }
