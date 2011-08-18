@@ -11,8 +11,8 @@ $(document).ready(function() {
                     $(".comments:first").append(response.comment);
                     $("#comment_content").val("");
                 }
-                if (response.error){
-                    console.log(response.error); //TODO Make errors handle
+                if (response.errors){
+                    console.log(response.errors); //TODO Make errors handle
                 }
                 $("form#comment .captcha_field").html(response.captcha);
             }
