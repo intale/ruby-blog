@@ -27,23 +27,19 @@ module SimpleCaptcha #:nodoc
   module ImageHelpers
     @@image_styles = {'ruby_blog' => ['-shade 80x65', '-background "#e8e8e8"']}
   end
-end
-module SimpleCaptcha #:nodoc
   module ViewHelper #:nodoc
 
     private
     def generate_simple_captcha_data(code)
       value = ''
-
       case code
-        when 'numeric'.to_sym then
+        when 'numeric' then
           SimpleCaptcha.length.times { value << (48 + rand(10)).chr }
-        when 'mixing'.to_sym then
+        when 'mixing' then
           SimpleCaptcha.length.times { value << [(48 + rand(10)),(65 + rand(26))][rand(2)].chr }
         else
           SimpleCaptcha.length.times { value << (65 + rand(26)).chr }
       end
-
       value
     end
   end
