@@ -16,7 +16,7 @@ sudo -u postgres createdb mydb
 sudo apt-get install libxml2 libxml2-dev libxslt1.1 libxslt1-dev
 
 4.Create database.yml
-Just copy database.yml and configure your db setup
+Just copy database.yml.example and configure your db setup
 
 5.Finishing installation
 bundle install
