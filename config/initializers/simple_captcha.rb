@@ -1,6 +1,6 @@
 SimpleCaptcha.setup do |sc|
   # default: 100x28
-  sc.image_size = '120x40'
+  sc.image_size = '120x30'
 
   # default: 5
   sc.length = 6
@@ -20,5 +20,5 @@ SimpleCaptcha.setup do |sc|
 
   # default: low
   # possible values: 'low', 'medium', 'high', 'random'
-  sc.distortion = 'random'
+  sc.distortion = 'medium'
 end
