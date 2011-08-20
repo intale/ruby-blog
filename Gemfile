@@ -22,7 +22,7 @@ gem 'will_paginate', :git => "git://github.com/JackDanger/will_paginate.git"
 gem "ckeditor"
 gem "paperclip", "= 2.3.12"
 gem "nokogiri", :require => 'nokogiri'
-gem 'simple_captcha', :git => 'git@github.com:intale/simple-captcha.git'
+gem 'simple_captcha', :git => 'git://git@github.com/intale/simple-captcha.git'
 # Use unicorn as the web server
 # gem 'unicorn'
 
