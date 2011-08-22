@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git@github.com:intale/simple-captcha.git
-  revision: be4bdad9567d5c52fd354aa2f059ab3dee9f6dbf
+  revision: a9b924856529fe913f3f26ef279f5c3a287a15df
   specs:
     simple_captcha (0.1.1)
 

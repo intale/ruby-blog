@@ -1,12 +1,13 @@
 class Administration::PostsController < Administration::MainController
 
-  before_filter :find_post, :only => [:edit, :update, :destroy]
+  before_filter :find_post, :only => [:update, :destroy]
 
   def index
     @posts = Post.includes(:admin).paginate(:per_page => 20, :page => params[:page])
   end
 
   def edit
+    @post = Post.includes(:tags).find(params[:id])
   end
 
   def update
@@ -15,7 +16,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def show
-    @post = Post.includes(:comments).find(params[:id])
+    @post = Post.includes([:comments, :tags]).find(params[:id])
   end
 
   def new
