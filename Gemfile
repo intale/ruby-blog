@@ -23,6 +23,7 @@ gem "ckeditor"
 gem "paperclip", "= 2.3.12"
 gem "nokogiri", :require => 'nokogiri'
 gem 'simple_captcha', :git => 'git://github.com/intale/simple-captcha.git'
+gem "sprockets", "2.0.0.beta.12"
 # Use unicorn as the web server
 # gem 'unicorn'
 
