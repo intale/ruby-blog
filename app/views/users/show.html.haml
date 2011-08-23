@@ -35,8 +35,7 @@
           =f.text_area :content
         .submit
           =f.submit :save
+          .captcha_field
+            = render :partial => "captcha"
           .clear
-        .captcha_field
-          = render :partial => "captcha"
-        .clear
   .clear
