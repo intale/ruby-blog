@@ -336,7 +336,7 @@ body .cke_dialog {
     display: inline-block;
     cursor: default;
     min-width: 60px;
-+ margin : 2 px 0;
+    margin: 2px 0;
 }
 
 .cke_skin_kama .cke_browser_gecko18 .cke_dialog_footer_buttons span.cke_dialog_ui_button {
