@@ -46,8 +46,9 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def destroy
-    @admin.destroy
-    flash[:notice] = "#{@admin.username} removed successfully"
+    flash[:error] = "Nel'zya udalit' admina ya skazal!"  #FIXME
+    #@admin.destroy
+    #flash[:notice] = "#{@admin.username} removed successfully"
     redirect_to administration_admins_path
   end
 
