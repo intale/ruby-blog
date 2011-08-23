@@ -7,6 +7,8 @@ RubyBlog::Application.routes.draw do
     post "/post/:id" => "users#create", :as => :create_comment
   end
 
+  get "/administration" => "administration/comments#index"
+
   namespace :administration do
     resources :admins
     resources :posts do
