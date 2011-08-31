@@ -13,6 +13,7 @@ class Administration::CommentsController < Administration::MainController
   end
 
   def update
+    @comment.current_admin=current_admin
     if @comment.update_attributes(params[:comment])
       flash[:notice] = "Comment updated successfully"
       redirect_to administration_post_path(@comment.post)
@@ -43,6 +44,7 @@ class Administration::CommentsController < Administration::MainController
   def build_comment
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(params[:comment])
+    @comment.current_admin=current_admin
   end
 
   def find_comment
