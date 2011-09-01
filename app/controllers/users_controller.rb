@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :find_post, :except => :index
   def index
-    @posts = Post.includes(:admin).paginate(:per_page => 5, :page => params[:page])
+    @posts = Post.includes(:admin).order('created_at desc').paginate(:per_page => 5, :page => params[:page])
   end
 
   def show
