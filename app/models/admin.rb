@@ -8,7 +8,7 @@ class Admin < ActiveRecord::Base
   validates :password, :confirmation => true, :if => :password_required?
   validates :username, :email, :nick,
             :presence => true,
-            :length => {:minimum => 3, :maximum => 20},
+            :length => {:minimum => 3, :maximum => 200},
             :uniqueness => { :case_sensitive => false }
   validates :email, :format => {:with => Devise.email_regexp}
 
