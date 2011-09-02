@@ -7,6 +7,22 @@
 */
 /* ----- main styles ----- */
 
+.h-search
+{    left: 750px;
+    position: absolute;
+    top: 55px;}
+
+.h-but
+{
+    background: url("/assets/search-but.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    cursor: pointer;
+    height: 34px;
+    position: absolute;
+    top: -5px;
+    width: 82px;
+}
+
 * {
   margin: 0px;
   padding: 0px; }

@@ -8,6 +8,7 @@ RubyBlog::Application.routes.draw do
   end
 
   get "/administration" => "administration/comments#index"
+  get "/search" => "search#index"
 
   namespace :administration do
     resources :admins

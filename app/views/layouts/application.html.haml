@@ -14,7 +14,14 @@
       .main1
         / H E A D E R  start
         .header
+          .h-search
+            .rel
+              = form_for(:search, :url => '/search') do |f|
+                =f.text_field("req", :class =>'h-field', :value=>"", :size=>'20')
+                =f.submit("",:class => 'h-but')
+
           %a.logo{:href => "#"}
+
           / h-menu start
           .h-menu
             %ul
