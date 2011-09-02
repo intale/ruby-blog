@@ -15,8 +15,6 @@
           %tr{:class => cycle("odd", "even")}
             %td
               = tag.name
-            %td
-              = tag.created_at
             %td.last
               = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_tag_path(tag)
               |
