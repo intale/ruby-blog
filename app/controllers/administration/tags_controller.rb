@@ -5,12 +5,15 @@ class Administration::TagsController < Administration::MainController
   end
 
   def create
-    tag = Tag.find_by_name(params[:tag][:name])
+    tag = Tag.find_or_create_by_name(params[:tag][:name])
     post = Post.find(params[:tag][:post_id])
-    #    result = {:error => "#{tag.name} already added"}
-    #    result = {:error => tag.errors}
-    #render :json => {:tag => result}
-    render :json => {:tag => tag}
+    unless post.tags.exists?(tag)
+      post.tags << tag
+      result = {:tag => render_to_string(:partial => 'tag', :locals =>{:tag => tag, :post => post})}
+    end
+    result ||= {:error => "Association between tag_id #{tag.id} and post_id #{post.id} already exist"}
+    render :json => result
+
   end
 
   def destroy

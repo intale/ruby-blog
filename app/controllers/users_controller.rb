@@ -21,7 +21,10 @@ class UsersController < ApplicationController
   private
 
   def find_post
-    @post = Post.find(params[:id])
+    unless @post = Post.find_by_id(params[:id])
+      redirect_to root_path
+      flash[:error] = "Post not found"
+    end
   end
 
 end

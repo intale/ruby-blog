@@ -6,12 +6,8 @@
   %h3 Manage tags
   %ul.navigation
     - post.tags.each do |tag|
-      %li
-        .post-tag{:id => "tag_#{tag.id}"}
-          %label
-            = tag.name
-          = link_to_function (image_tag "cross.png"), "deleteTag('#{post.id.to_s}', '#{tag.id.to_s}', '#{form_authenticity_token}')"
-        .clear
+      = render :partial => 'tag', :locals => {:tag => tag, :post => post}
+
   .new-tag
     = form_for :tag, :html => {:id => "tag-form"} do |f|
       = f.hidden_field :post_id, :value => post.id

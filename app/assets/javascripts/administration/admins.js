@@ -27,7 +27,12 @@ $(document).ready(function() {
             data: data,
             url: '/administration/tags',
             success: function (response) {
-                console.log(response);
+                if (response.tag) {
+                    $(".navigation").append(response.tag);
+                }
+                else {
+                    $(".flash").html('<div class="message error">' + response.error + '</div>');
+                }
             }
         });
         return false;
