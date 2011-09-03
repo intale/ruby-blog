@@ -8,6 +8,6 @@
       = t("web-app-theme.new", :default => "New")
       Admin
     .inner
-      = form_for @admin, :url => administration_admins_path, :html => { :class => :form } do |f|
+      = form_for @admin, :url => administration_admins_path,:html => { :multipart => true }, :html => { :class => :form } do |f|
         = render :partial => "form", :locals => {:f => f}
 - content_for :sidebar, render(:partial => 'sidebar')
