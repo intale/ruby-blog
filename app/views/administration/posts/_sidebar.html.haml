@@ -10,6 +10,6 @@
 
   .new-tag
     = form_for :tag, :html => {:id => "tag-form"} do |f|
-      = f.hidden_field :post_id, :value => post.id
+      = hidden_field_tag :post_id, post.id
       = f.text_field :name
       = f.submit "Add Tag"
