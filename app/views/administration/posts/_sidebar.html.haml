@@ -6,9 +6,10 @@
   %h3 Manage tags
   %ul.navigation
     - post.tags.each do |tag|
-      %li
-        .post-tag
-          %label
-            = tag.name
-          = link_to_function (image_tag "cross.png"),""
-        .clear
+      = render :partial => 'tag', :locals => {:tag => tag, :post => post}
+
+  .new-tag
+    = form_for :tag, :html => {:id => "tag-form"} do |f|
+      = hidden_field_tag :post_id, post.id
+      = f.text_field :name
+      = f.submit "Add Tag"

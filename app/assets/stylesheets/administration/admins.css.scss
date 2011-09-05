@@ -4,7 +4,7 @@
 // = require web-app-theme/base
 // = require web-app-theme/themes/warehouse/style
 // = require web-app-theme/override
-//
+// = require jquery.autocomplete
 .show-comments{
   width: 15%;
   text-align: left !important;
@@ -13,6 +13,13 @@
 .post-tag a {
   float: left;
   margin-top: 5px;
+}
+
+.post-tag {
+  line-height: 8px;
+}
+#tag_name {
+    width: 185px;
 }
 
 .post-tag label {

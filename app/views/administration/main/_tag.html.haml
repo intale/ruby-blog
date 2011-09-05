@@ -1,0 +1,6 @@
+%li
+  .post-tag{:id => "tag_#{tag.id}"}
+    %label
+      = tag.name
+    = link_to_function (image_tag "cross.png"), "deleteTagAssociation('#{post.id.to_s}', '#{tag.id.to_s}', '#{form_authenticity_token}')"
+  .clear
