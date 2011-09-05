@@ -54,7 +54,11 @@ class Administration::TagsController < Administration::MainController
   end
 
   def find_tag
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_id(params[:id])
+    unless @tag
+      flash[:error] = "Tag with id #{params[:id]} not found"
+      redirect_to administration_tags_path
+    end
   end
 
 end
