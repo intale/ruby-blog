@@ -1,7 +1,7 @@
 class Administration::TagsController < Administration::MainController
 
     before_filter :find_post, :only => [:create, :destroy]
-    before_filter :find_tag, :only => [:edit, :update]
+    before_filter :find_tag, :only => [:edit, :update, :destroy!, :destroy]
 
   def index
     @tags = Tag.all.paginate(:per_page => 20, :page => params[:page])
@@ -33,8 +33,7 @@ class Administration::TagsController < Administration::MainController
   end
 
   def destroy
-    tag = Tag.find_by_id(params[:id])
-    if tag and @post and @post.tags.delete(tag)
+    if @tag and @post and @post.tags.delete(@tag)
       render :text => "ok"
     else
       render :text => "Error while deleting association between tag_id #{params[:id]} and post_id #{params[:post_id]}"
@@ -42,14 +41,9 @@ class Administration::TagsController < Administration::MainController
   end
 
   def destroy!
-    tag = Tag.find_by_id(params[:id])
-    if tag
-      tag.destroy
-      flash[:notice] = "Tag #{tag.name} has been successfully deleted"
-    else
-      flash[:error] = "Could not find tag with id #{params[:id]}"
-    end
-    redirect_to administration_tags_path
+      @tag.destroy
+      flash[:notice] = "Tag #{@tag.name} has been successfully deleted"
+      redirect_to administration_tags_path
   end
 
   private
@@ -59,10 +53,9 @@ class Administration::TagsController < Administration::MainController
   end
 
   def find_tag
-    @tag = Tag.find_by_id(params[:id])
-    unless @tag
+    unless @tag = Tag.find_by_id(params[:id])
       flash[:error] = "Tag with id #{params[:id]} not found"
-      redirect_to administration_tags_path
+      redirect_to administration_tags_path unless request.xhr?
     end
   end
 
