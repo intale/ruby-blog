@@ -21,7 +21,6 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#tag-form').submit(function() {
         var data = $(this).serialize();
-        console.log(data);
         $.ajax({
             type: "POST",
             data: data,
@@ -29,6 +28,7 @@ $(document).ready(function() {
             success: function (response) {
                 if (response.tag) {
                     $(".navigation").append(response.tag);
+                    $("#tag_name").val('');
                 }
                 else {
                     $(".flash").html('<div class="message error">' + response.error + '</div>');
