@@ -1,6 +1,7 @@
 class Administration::TagsController < Administration::MainController
 
     before_filter :find_post, :only => [:create, :destroy]
+    before_filter :find_tag, :only => [:edit, :update]
 
   def index
     @tags = Tag.all.paginate(:per_page => 20, :page => params[:page])
@@ -14,6 +15,16 @@ class Administration::TagsController < Administration::MainController
     end
     result ||= {:error => "Association between tag_id #{tag.id} and post_id #{params[:post_id]} already exist or post not found"}
     render :json => result
+  end
+
+  def update
+    if @tag.update_attributes(params[:tag])
+      flash[:notice] = "Updated successfully"
+      redirect_to administration_tags_path
+    else
+      flash[:error] = @tag.errors.to_a
+      render :action => :edit
+    end
   end
 
   def destroy
@@ -40,6 +51,10 @@ class Administration::TagsController < Administration::MainController
 
   def find_post
     @post = Post.find_by_id(params[:post_id])
+  end
+
+  def find_tag
+    @tag = Tag.find(params[:id])
   end
 
 end
