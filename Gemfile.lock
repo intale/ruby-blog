@@ -74,6 +74,10 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_search (1.1.0.pre2)
+      actionpack (~> 3.1.0.alpha)
+      activerecord (~> 3.1.0.alpha)
+      activesupport (~> 3.1.0.alpha)
     mime-types (1.16)
     multi_json (1.0.3)
     nokogiri (1.5.0)
@@ -153,6 +157,7 @@ DEPENDENCIES
   haml
   hpricot
   jquery-rails
+  meta_search (~> 1.1.pre)
   nokogiri
   paperclip (= 2.3.12)
   passenger
