@@ -19,7 +19,7 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def update
-    @admin.build_avatar(params[:admin][:avatar_attributes]) if params[:admin][:avatar_attributes][:photo] #FIXME maybe include help =\
+    @admin.avatar.update_attributes(params[:admin][:avatar_attributes])
     respond_to do |format|
       if @admin.update_attributes(params[:admin])
         flash[:notice] = "Account updated successfully"
