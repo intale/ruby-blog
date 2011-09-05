@@ -11,12 +11,16 @@ class Administration::AdminsController < Administration::MainController
 
   def new
     @admin = Admin.new
+    @admin.build_avatar
   end
 
   def edit
+    @admin=Admin.find_by_id(params[:id])
+    @admin.build_avatar
   end
 
   def update
+    @admin.build_avatar(params[:admin][:avatar_attributes]) #FIXME maybe include help =\
     respond_to do |format|
       if @admin.update_attributes(params[:admin])
         flash[:notice] = "Account updated successfully"
@@ -32,6 +36,7 @@ class Administration::AdminsController < Administration::MainController
 
   def create
     @admin = Admin.new(params[:admin])
+    @admin.build_avatar(params[:admin][:avatar_attributes])
     respond_to do |format|
       if @admin.save
         flash[:notice] = "Account created successfully"

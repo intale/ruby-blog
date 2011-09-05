@@ -13,6 +13,10 @@
 .group
   = f.label "Password confirmation" ,:class => :label
   = f.password_field :password_confirmation
+.group
+  = f.label "Avatar", :class => :label
+  = f.fields_for :avatar do |f_image|
+    = f_image.file_field :photo
 .group.navform.wat-cf
   %button.button{:type => "submit"}
     = image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
