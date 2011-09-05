@@ -15,6 +15,8 @@
   = f.password_field :password_confirmation
 .group
   = f.label "Avatar", :class => :label
+  = image_tag @admin.avatar.photo.url(:medium)
+  %br
   = f.fields_for :avatar do |f_image|
     = f_image.file_field :photo
 .group.navform.wat-cf
