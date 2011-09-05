@@ -27,6 +27,11 @@ class Administration::TagsController < Administration::MainController
     end
   end
 
+  def search_tag
+    tag = Tag.where("LOWER(name) LIKE (?)", "%#{params[:q]}%")
+    render :text => tag.map(&:name).uniq.join("\n")
+  end
+
   def destroy
     tag = Tag.find_by_id(params[:id])
     if tag and @post and @post.tags.delete(tag)

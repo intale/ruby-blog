@@ -7,15 +7,7 @@
 // = require jquery.autocomplete
 
 $(document).ready(function() {
-    $(("#tag_name")).autocomplete({
-        source: function(request, callback) {
-            console.log(request);
-            console.log(callback);
-        },
-        select: function(event, ui) {
-
-        }
-    });
+    $("#tag_name").autocomplete("/administration/search_tag");
 });
 
 $(document).ready(function() {
