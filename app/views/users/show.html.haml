@@ -11,15 +11,7 @@
     %h2
       Comments
     - @comments.each do |comment|
-      .comment
-        %strong
-          = "#{comment.author} | #{l(comment.created_at, :format => :long)}"
-        .avatar
-          %span
-        .message
-          %span
-            = simple_format(comment.content)
-        .clear
+      = render :partial => 'comment', :locals => {:comment => comment}
   .clear
   .comments
     %h2
