@@ -17,4 +17,5 @@ RubyBlog::Application.routes.draw do
     resources :comments, :except => [:new, :create]
     resources :tags
   end
+  delete "administration/tags/destroy/:id" => "administration/tags#destroy!", :as => :administration_destroy_tag
 end

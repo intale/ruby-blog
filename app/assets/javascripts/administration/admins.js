@@ -40,7 +40,7 @@ $(document).ready(function() {
 });
 
 
-function deleteTag(post_id, tag_id, auth_token) {
+function deleteTagAssociation(post_id, tag_id, auth_token) {
     var url = '/administration/tags/' + tag_id
     $.ajax({
         type: "DELETE",

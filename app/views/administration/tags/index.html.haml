@@ -16,11 +16,9 @@
             %td
               = tag.name
             %td.last
-              = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_tag_path(tag)
+              = link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_administration_tag_path(tag)
               |
-              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_administration_tag_path(tag)}
-              |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", administration_tag_path(tag), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", administration_destroy_tag_path(tag), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
       .actions-bar.wat-cf
         .actions
       = will_paginate @tags
