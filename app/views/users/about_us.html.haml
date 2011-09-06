@@ -7,6 +7,6 @@
           %th="Administrator name:"
           %th="Administrator email:"
         %tr
-          %td{:width=>"30%"}= admin.username.upcase
+          %td{:width=>"30%"}= admin.username.split(" ").each {|word| word.capitalize!}.join(" ")
           %td{:width=>"50%"}= mail_to "#{admin.email}", "#{admin.email}", :encode => "javascript"
   .clear
