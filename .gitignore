@@ -7,3 +7,5 @@ tmp/
 nbproject/*
 config/database.yml
 public/ckeditor_assets/*
+db/schema.rb
+app/assets/images/avatar/*

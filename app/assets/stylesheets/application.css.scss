@@ -154,7 +154,7 @@ input, select, textarea {
   border-top: 3px solid #999;
   float: left;
   width: 650px;
-  padding: 12px 30px 0px 15px;
+  padding: 12px 15px 0px 15px;
   height: 1%; }
 
 .right {
@@ -166,6 +166,22 @@ input, select, textarea {
 
 .item {
   padding: 0 0 19px 0; }
+
+.about{
+  padding: 0 0 20px 0;
+}
+
+
+table th,td{
+  font-family: verdana,helvetica,arial,sans-serif;
+  padding: 0 0 0 0;
+  height:60px;
+  background-color: #FFFFFF;
+  border: 1px solid #C3C3C3;
+  border-collapse: collapse;
+  font-size: 100%;
+  text-align:center;
+}
 
 .by {
   text-align: right;
