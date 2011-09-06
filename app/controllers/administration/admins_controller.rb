@@ -15,37 +15,28 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def edit
-    @admin=Admin.find_by_id(params[:id])
   end
 
   def update
     @admin.avatar.update_attributes(params[:admin][:avatar_attributes])
-    respond_to do |format|
-      if @admin.update_attributes(params[:admin])
-        flash[:notice] = "Account updated successfully"
-        format.html { redirect_to administration_admin_path(@admin) }
-        format.xml { head :ok }
-      else
-        flash[:error] = "Error!"
-        format.html { render :action => :edit }
-        format.xml { render :xml => @admin.errors, :status => :unprocessable_entity }
-      end
+    if @admin.update_attributes(params[:admin])
+      flash[:notice] = "Account updated successfully"
+      redirect_to administration_admin_path(@admin)
+    else
+      flash[:error] = @admin.errors.to_a
+      render :action => :edit
     end
   end
 
   def create
     @admin = Admin.new(params[:admin])
     @admin.build_avatar(params[:admin][:avatar_attributes])
-    respond_to do |format|
-      if @admin.save
-        flash[:notice] = "Account created successfully"
-        format.html { redirect_to administration_admin_path(@admin) }
-        format.xml { head :ok }
-      else
-        flash[:error] = "Error!"
-        format.html { render :action => :new }
-        format.xml { render :xml => @admin.errors, :status => :unprocessable_entity }
-      end
+    if @admin.save
+      flash[:notice] = "Account created successfully"
+      redirect_to administration_admin_path(@admin)
+    else
+      flash[:error] = @admin.errors.to_a
+      render :action => :new
     end
   end
 
@@ -59,7 +50,11 @@ class Administration::AdminsController < Administration::MainController
   private
 
   def find_admin
-    @admin = Admin.find(params[:id])
+    @admin=Admin.find_by_id(params[:id])
+    unless @admin
+      flash[:error]="Admin with id #{params[:id]} does not exist!"
+      redirect_to administration_admins_path
+    end
   end
 
 end

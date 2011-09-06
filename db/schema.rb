@@ -65,16 +65,6 @@ ActiveRecord::Schema.define(:version => 20110904133337) do
     t.string   "author"
   end
 
-  create_table "images", :force => true do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.integer  "entity_id"
-    t.string   "entity_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "posts", :force => true do |t|
     t.integer  "admin_id"
     t.text     "subject"
@@ -84,9 +74,11 @@ ActiveRecord::Schema.define(:version => 20110904133337) do
   end
 
   create_table "posts_tags", :id => false, :force => true do |t|
-    t.integer "post_id"
-    t.integer "tag_id"
+    t.integer "post_id", :null => false
+    t.integer "tag_id",  :null => false
   end
+
+  add_index "posts_tags", ["post_id", "tag_id"], :name => "index_posts_tags_on_post_id_and_tag_id", :unique => true
 
   create_table "session_logs", :force => true do |t|
     t.integer "post_id"

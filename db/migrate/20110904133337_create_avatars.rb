@@ -6,8 +6,12 @@ class CreateAvatars < ActiveRecord::Migration
       t.integer :photo_file_size
       t.string :entity_type
       t.integer :entity_id
-
       t.timestamps
+    end
+    Avatar.reset_column_information
+    Admin.all.each do |admin|
+      admin.create_avatar
+      admin.save!
     end
   end
 end

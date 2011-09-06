@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def about_us
-    @admins = Admin.find(:all)
+    @admins = Admin.all
   end
 
   def show
