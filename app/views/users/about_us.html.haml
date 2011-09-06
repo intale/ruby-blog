@@ -4,9 +4,9 @@
       %table{:width=>"100%", :cellspacing=>"0", :cellpadding=>"0", :border=>"1"}
         %tr
           %th{:rowspan => "2",:width=>"20%"}= image_tag admin.avatar.photo.url(:medium)
-          %th="Admin username:"
-          %th="Admin email:"
+          %th="Administrator name:"
+          %th="Administrator email:"
         %tr
-          %td{:width=>"30%"}= "#{admin.username}"
+          %td{:width=>"30%"}= admin.username.upcase
           %td{:width=>"50%"}= mail_to "#{admin.email}", "#{admin.email}", :encode => "javascript"
   .clear
