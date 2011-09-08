@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_filter :find_post, :except => [:index,:about_us]
   def index
     @posts = Post.includes(:admin).order("posts.created_at DESC").paginate(:per_page => 5, :page => params[:page])
+    @tags = Tag.all
   end
 
   def about_us
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @comments = @post.comments
+    @tags = @post.tags
   end
 
   def create

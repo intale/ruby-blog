@@ -10,6 +10,7 @@ RubyBlog::Application.routes.draw do
   get "/administration" => "administration/comments#index"
 
   get "/about_us" => "users#about_us"
+  get "/categories/:name" => "tags#index", :as => :tags
 
   namespace :administration do
     resources :admins
