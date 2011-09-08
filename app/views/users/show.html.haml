@@ -7,6 +7,9 @@
     = raw @post.message
     .more
       &nbsp;
+      - @post.tags.all.each do |tag|
+        |
+        = link_to tag.name, tags_path(tag.name)
   .comments
     %h2
       Comments

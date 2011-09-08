@@ -33,28 +33,8 @@
             %h3 Categories
             .r-menu
               %ul
-                %li
-                  %a{:href => "#"} Documentation
-                %li
-                  %a{:href => "#"} General
-                %li
-                  %a{:href => "#"} Horizon
-                %li
-                  %a{:href => "#"} Jobs
-                %li
-                  %a{:href => "#"} Launches
-                %li
-                  %a{:href => "#"} Praise
-                %li
-                  %a{:href => "#"} Releases
-                %li
-                  %a{:href => "#"} Sightings
-                %li
-                  %a{:href => "#"} Tricks
-                %li
-                  %a{:href => "#"} Edge
-                %li
-                  %a{:href => "#"} Activism
+              - @tags.each do |tag|
+                %li= link_to tag.name, tags_path(tag.name)
           / R I G H T
           .clear
         / C O N T E N T  end
