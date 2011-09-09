@@ -13,7 +13,7 @@
   .comments
     %h2
       Comments
-    - @comments.each do |comment|
+    - @post.comments.each do |comment|
       .comment
         %strong
           = "#{comment.author} | #{l(comment.created_at, :format => :long)}"
