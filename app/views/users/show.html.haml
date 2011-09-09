@@ -7,10 +7,13 @@
     = raw @post.message
     .more
       &nbsp;
+      - @post.tags.all.each do |tag|
+        |
+        = link_to tag.name, tags_path(tag.name)
   .comments
     %h2
       Comments
-    - @comments.each do |comment|
+    - @post.comments.each do |comment|
       .comment
         %strong
           = "#{comment.author} | #{l(comment.created_at, :format => :long)}"
