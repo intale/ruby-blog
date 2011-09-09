@@ -6,7 +6,7 @@
       .by
         ="Posted by #{post.admin.nick}@#{post.created_at}"
       = raw truncate_html(post.message)
-      - post.tags.all.each do |tag|
+      - post.tags.each do |tag|
         |
         = link_to tag.name, tags_path(tag.name)
       |
