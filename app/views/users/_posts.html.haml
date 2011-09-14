@@ -14,6 +14,6 @@
       .more
         =link_to "Read More", show_post_comments_path(post)
   .pager
-    =will_paginate @posts, :class => "pager", :previous_label => '', :next_label => '', :separator => ' - '
+    =will_paginate posts, :class => "pager", :previous_label => '', :next_label => '', :separator => ' - '
     .clear
   .clear

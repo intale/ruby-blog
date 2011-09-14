@@ -8,12 +8,6 @@
     .inner
       %p
         %b
-          = t("activerecord.attributes.administration_admin.avatar", :default => t("activerecord.labels.avatar", :default => "Avatar"))
-          \:
-        %br
-        = image_tag @admin.avatar.photo.url(:medium)
-      %p
-        %b
           = t("activerecord.attributes.administration_admin.id", :default => t("activerecord.labels.id", :default => "ID"))
           \:
         = @admin.id

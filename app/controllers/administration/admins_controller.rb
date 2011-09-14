@@ -11,14 +11,12 @@ class Administration::AdminsController < Administration::MainController
 
   def new
     @admin = Admin.new
-    @admin.build_avatar
   end
 
   def edit
   end
 
   def update
-    @admin.avatar.update_attributes(params[:admin][:avatar_attributes])
     if @admin.update_attributes(params[:admin])
       flash[:notice] = "Account updated successfully"
       redirect_to administration_admin_path(@admin)
@@ -30,7 +28,6 @@ class Administration::AdminsController < Administration::MainController
 
   def create
     @admin = Admin.new(params[:admin])
-    @admin.build_avatar(params[:admin][:avatar_attributes])
     if @admin.save
       flash[:notice] = "Account created successfully"
       redirect_to administration_admin_path(@admin)
