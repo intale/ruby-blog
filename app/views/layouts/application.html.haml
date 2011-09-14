@@ -14,7 +14,24 @@
       .main1
         / H E A D E R  start
         .header
+          .h-search
+            .rel
+              = form_for :search, :url => search_path, :method => "GET" do |f|
+                #search_up_partial
+                  =f.text_field(:request, :class =>'h-field', :value=>"", :size=>'20')
+                  =f.submit("",:class => 'h-but')
+                  #search_down_partial
+                    =f.radio_button"category", "in posts", :checked => true
+                    =f.label "In posts"
+                    =f.radio_button "category", "in comments"
+                    =f.label "In comments"
+
+
+
+
+
           %a.logo{:href => "#"}
+
           / h-menu start
           .h-menu
             %ul

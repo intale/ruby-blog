@@ -8,6 +8,7 @@ RubyBlog::Application.routes.draw do
   end
 
   get "/administration" => "administration/comments#index"
+  get "/search" => "search#index"
 
   get "/about_us" => "users#about_us"
   get "/categories/:name" => "tags#index", :as => :tags
