@@ -1,0 +1,18 @@
+.content
+  .center
+    .item
+      %h2
+        =raw @post.subject
+      .by
+        = "Posted by #{current_admin.nick}@#{Time.now}"
+      #post-body
+        = raw @post.message
+      .clear
+
+  .clear
+
+:javascript
+  $(document).ready(function(){
+    $('.header').remove();
+    $('.right').remove();
+  });

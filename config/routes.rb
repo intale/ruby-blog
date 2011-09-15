@@ -15,6 +15,9 @@ RubyBlog::Application.routes.draw do
   namespace :administration do
     resources :admins
     resources :posts do
+      collection do
+        get :preview
+      end
       resources :comments, :only => [:new, :create]
     end
     resources :comments, :except => [:new, :create]
