@@ -14,37 +14,29 @@
       .main1
         / H E A D E R  start
         .header
-          .h-search
-            .rel
-              = form_for :search, :url => search_path, :method => "GET" do |f|
-                #search_up_partial
-                  =f.text_field(:request, :class =>'h-field', :value=>"", :size=>'20')
-                  =f.submit("",:class => 'h-but')
-                  #search_down_partial
-                    =f.radio_button"category", "in posts", :checked => true
-                    =f.label "In posts"
-                    =f.radio_button "category", "in comments"
-                    =f.label "In comments"
-
-
-
-
-
-          %a.logo{:href => "#"}
+          %a.logo{:href => root_path}
 
           / h-menu start
           .h-menu
-            %ul
-              %li= link_to "Home", root_path
-              %li
-                %a{:href => "javascript: void(0);"} Contact
-              %li
-                %a{:href => "javascript: void(0);"} Submit
-              %li
-                %a{:href => "javascript: void(0);"} About us
+            #menu-elements
+              %ul
+                %li= link_to "Home", root_path
+                %li
+                  %a{:href => "javascript: void(0);"} Contact
+                %li
+                  %a{:href => "javascript: void(0);"} Submit
+                %li
+                  %a{:href => "javascript: void(0);"} About us
+            #search-form
+              = form_tag search_path, :method => "GET"
+              = text_field_tag :request
+              = link_to "Search", "javascript: void(0);", :id => "submit-search"
+              = hidden_field_tag :category, "in posts"
+            .clear
           / h-menu end
         / H E A D E R  end
         / C O N T E N T  start
+
         .content
           = yield
           .right

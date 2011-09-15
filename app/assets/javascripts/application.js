@@ -7,3 +7,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require users
+
+$(document).ready(function(){
+   $("#submit-search").click(function(){
+      if ($("#search_request").val() != ""){
+        $(this).parents("form").submit();
+      }
+   });
+});

@@ -1,14 +1,15 @@
-%h2 Results by your request "#{@search_str}"
+.center
+  %p Results by your request "#{@search_request}"
 
-- if @is_posts
-  = render :partial => 'users/posts', :locals => {:posts => @find}
-- else
+  - if @is_posts
+    = render :partial => 'users/posts', :locals => {:posts => @find}
+  - else
 
-  %table#search_results
-    %tr
-      - @find.each do |finded_item|
-        %td
-          = render :partial => 'users/comment', :locals => {:comment => finded_item}
+    %table#search_results
+      %tr
+        - @find.each do |item|
+          %td
+            = render :partial => 'users/comment', :locals => {:comment => item}
 
-  .pager
-    =will_paginate @find, :class => "pager", :previous_label => '', :next_label => '', :separator => ' - '
+    .pager
+      =will_paginate @find, :class => "pager", :previous_label => '', :next_label => '', :separator => ' - '

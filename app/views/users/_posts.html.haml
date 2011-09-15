@@ -6,13 +6,15 @@
       .by
         ="Posted by #{post.admin.nick}@#{post.created_at}"
       = raw truncate_html(post.message)
-      - post.tags.all.each do |tag|
-        |
-        = link_to tag.name, tags_path(tag.name)
-      |
       .clear
       .more
         =link_to "Read More", show_post_comments_path(post)
+        %div{:style => "float:left;"}
+          - unless post.tags.empty?
+            - post.tags.each do |tag|
+              |
+              = link_to tag.name, tags_path(tag.name)
+            |
   .pager
     =will_paginate posts, :class => "pager", :previous_label => '', :next_label => '', :separator => ' - '
     .clear

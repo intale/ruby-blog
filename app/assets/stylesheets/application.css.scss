@@ -7,17 +7,6 @@
 */
 /* ----- main styles ----- */
 
-#search_down_parotial{
-}
-
-#search_up_parotial{
-}
-
-.h-search
-{    left: 750px;
-    position: absolute;
-    top: 55px;}
-
 .h-but
 {
     background: url("/assets/search-but.png") no-repeat scroll 0 0 transparent;
@@ -249,3 +238,14 @@ input, select, textarea {
   text-align: center;
   font-size: 8pt; }
 
+#search-form{
+  float: right;
+  float:right;
+  width:29%;
+}
+.h-menu #menu-elements{
+  float:left;
+  width:68%;
+  height: 19px;
+  text-align: right;
+}
