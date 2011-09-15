@@ -7,3 +7,5 @@
 .group.navform.wat-cf
   = f.submit "Save"
   = link_to "Cancel", administration_posts_path
+%br>
+%iframe{:src => preview_administration_posts_path(:id => @post.id.to_s), :id => "post-iframe", :width => "100%", :height => "480"}

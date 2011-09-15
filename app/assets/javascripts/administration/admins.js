@@ -48,3 +48,15 @@ function deleteTagAssociation(post_id, tag_id, auth_token) {
         }
     });
 }
+
+$(function() {
+  function updatePostIframe() {
+      var message = $("#cke_contents_post_message > iframe").contents().find(".cke_show_borders").html();
+      var subject = $("#post_subject").val();
+      $("#post-iframe").contents().find("#post-body").html(message);
+      $("#post-iframe").contents().find(".item:first h2").html(subject);
+      setTimeout(updatePostIframe, 5000);
+      return false;
+  }
+  updatePostIframe();
+});

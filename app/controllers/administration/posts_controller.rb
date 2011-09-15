@@ -40,6 +40,12 @@ class Administration::PostsController < Administration::MainController
     redirect_to administration_posts_path
   end
 
+  def preview
+    @tags = []
+    @post= Post.find_by_id(params[:id]) || Post.new
+    render :layout => 'application'
+  end
+
   private
 
   def find_post
