@@ -1,16 +1,16 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem "meta_search", "~>1.1.pre"
+gem "meta_search", "=1.1.1"
 
 gem 'pg'
 gem 'passenger'
+gem 'sass-rails'
 # Asset template engines
-gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
 gem 'web-app-theme'
@@ -22,10 +22,9 @@ gem 'ruby_parser'
 gem 'hpricot'
 gem 'will_paginate', :git => "git://github.com/JackDanger/will_paginate.git"
 gem "ckeditor"
-gem "paperclip", "= 2.3.12"
+gem "paperclip", "~> 2.4"
 gem "nokogiri", :require => 'nokogiri'
 gem 'simple_captcha', :git => 'git://github.com/intale/simple-captcha.git'
-gem "sprockets", "2.0.0.beta.12"
 # Use unicorn as the web server
 # gem 'unicorn'
 
