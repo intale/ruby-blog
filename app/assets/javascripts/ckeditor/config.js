@@ -25,7 +25,7 @@ CKEDITOR.editorConfig = function( config )
   config.filebrowserImageBrowseUrl = "/ckeditor/pictures";
 
   // The location of a script that handles file uploads in the Image dialog.
-  config.filebrowserImageUploadUrl = "/ckeditor/pictures?authenticity_token=" + jQuery("meta[name = csrf-token]").attr("content");
+  config.filebrowserImageUploadUrl = "/ckeditor/pictures?authenticity_token=" + encodeURIComponent(jQuery("meta[name = csrf-token]").attr("content"));
   
   // The location of a script that handles file uploads.
   config.filebrowserUploadUrl = "/ckeditor/attachment_files";
