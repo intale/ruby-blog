@@ -8,6 +8,15 @@ class Ckeditor::Picture < Ckeditor::Asset
 	validates_attachment_presence :data
 	
 	def url_content
-	  url(:content)
-	end
+    data.url(:content)
+  end
+
+  def url_thumb
+    data.url
+  end
+
+  def size
+    data.size
+  end
+
 end
