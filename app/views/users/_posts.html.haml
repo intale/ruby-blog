@@ -4,10 +4,7 @@
       %h2
         =link_to post.subject, show_post_comments_path(post)
       .by
-        ="Posted by"
-        %span.admin_span{:style=>"color: green;"} #{post.admin.nick}
-        =time_ago_in_words(post.created_at)
-        ago
+        ="Posted by #{post.admin.nick}@#{post.created_at}"
       = raw truncate_html(post.message)
       .clear
       .more
