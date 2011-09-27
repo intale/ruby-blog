@@ -5,6 +5,7 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'bcrypt-ruby'
 gem "meta_search", "=1.1.1"
 
 gem 'pg'
