@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @meta_title = @post.subject
+    @page_tags = @post.tags.all.map(&:name).join(" ")
   end
 
   def create
