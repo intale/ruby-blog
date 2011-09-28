@@ -1,10 +1,10 @@
 !!!
 %html{:dir => "ltr", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title RubyBlog
+    %title= @meta_title || "RubyBlog"
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    %meta{:content => "", :name => "keywords"}/
-    %meta{:content => "", :name => "description"}/
+    %meta{:content => @page_tags || "", :name => "keywords"}
+    %meta{:content => @meta_title || "", :name => "description"}/
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
