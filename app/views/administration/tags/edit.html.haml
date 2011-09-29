@@ -12,6 +12,12 @@
         .group
           =f.label :name
           =f.text_field :name
+        .group
+          %p
+            =f.label "Now status is "
+            %strong= @tag.status
+          =f.label "Change status to"
+          =f.select :status,options_for_select(["Show", "Hide"])
         .group.navform.wat-cf
           %button.button{:type => "submit"}
             = image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
