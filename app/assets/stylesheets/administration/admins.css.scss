@@ -35,3 +35,9 @@
   line-height: 0px;
   height: 0px;
 }
+
+.table th a{
+    color: #ffffff;
+    &:hover {
+    color: #d2d2d2; }
+}

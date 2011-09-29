@@ -9,8 +9,8 @@
     .inner
       %table.table
         %tr
-          %th Subject
-          %th= "Created at"
+          %th= sort_link @search, :subject, "Subject"
+          %th= sort_link @search, :created_at, "Created at"
           %th.last &nbsp;
         - @posts.each do |post|
           %tr{:class => cycle("odd", "even")}
