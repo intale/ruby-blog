@@ -3,7 +3,8 @@ class Administration::AdminsController < Administration::MainController
   before_filter :find_admin, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @admins = Admin.all
+    @search = Admin.search(params[:search] || {"meta_sort" => "id.asc"})
+    @admins = @search
   end
 
   def show

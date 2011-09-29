@@ -3,7 +3,8 @@ class Administration::PostsController < Administration::MainController
   before_filter :find_post, :only => [:update, :destroy]
 
   def index
-    @posts = Post.includes(:admin).paginate(:per_page => 20, :page => params[:page])
+    @search = Post.includes(:admin).search(params[:search] || {"meta_sort" => "id.asc"})
+    @posts = @search.paginate(:per_page => 20, :page => params[:page])
   end
 
   def edit
