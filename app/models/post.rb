@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :tags
 
   validates :admin_id, :subject, :message, :presence => true
+  validates :truncate_character, :numericality => {:only_integer => true, :grater_than => 0}
 
   before_save :update_post_message
 

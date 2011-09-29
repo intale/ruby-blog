@@ -1,6 +1,11 @@
 .group
   = f.label "Subject:"
   = f.text_field :subject
+  = f.label "Status:"
+  = f.select :status,options_for_select(["Disabled","Enabled"])
+  %p
+    = f.label "Number of characters to show:"
+    = f.text_field :truncate_character
 .group
   = f.label "Message:"
   = f.cktext_area :message
