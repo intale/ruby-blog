@@ -12,6 +12,10 @@
         .group
           =f.label :name
           =f.text_field :name
+        .group
+          %p
+            =f.label "Hide this tag "
+            =f.check_box :status
         .group.navform.wat-cf
           %button.button{:type => "submit"}
             = image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")

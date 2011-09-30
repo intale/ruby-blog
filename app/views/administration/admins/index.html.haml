@@ -10,10 +10,9 @@
     .inner
       %table.table
         %tr
-          %th.first ID
-          %th
-            = t("activerecord.attributes.administration_admin.nick", :default => t("activerecord.labels.nick", :default => "Nick"))
-          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th.first= sort_link @search, :id, "ID"
+          %th= sort_link @search, :nick, t("activerecord.attributes.administration_admin.nick", :default => t("activerecord.labels.nick", :default => "Nick"))
+          %th= sort_link @search, :created_at, t("web-app-theme.created_at", :default => "Created at")
           %th.last &nbsp;
         - @admins.each do |admin|
           %tr{:class => cycle("odd", "even")}

@@ -8,7 +8,7 @@
     .inner
       %table.table
         %tr
-          %th.first Comments
+          %th.first= sort_link @search, :content, "Comments"
           %th.last &nbsp;
         - @comments.each do |comment|
           %tr{:class => cycle("odd", "even")}

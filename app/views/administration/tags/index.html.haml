@@ -8,8 +8,8 @@
     .inner
       %table.table
         %tr
-          %th id
-          %th Name
+          %th= sort_link @search, :id, "ID"
+          %th= sort_link @search, :name, "Name"
           %th.last
         - @tags.each do |tag|
           %tr{:class => cycle("odd", "even")}
