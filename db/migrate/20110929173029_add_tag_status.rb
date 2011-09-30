@@ -1,6 +1,6 @@
 class AddTagStatus < ActiveRecord::Migration
   def up
-    add_column :tags, :status, :string, :default => "Show"
+    add_column :tags, :status, :boolean, :default => false
   end
 
   def down
