@@ -1,6 +1,11 @@
 .group
   = f.label "Subject:"
   = f.text_field :subject
+  = f.label "Disable this post"
+  = f.check_box :status
+  %p
+    = f.label "Number of characters to show:"
+    = f.text_field :truncate_character
 .group
   = f.label "Message:"
   = f.cktext_area :message

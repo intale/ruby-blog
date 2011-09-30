@@ -11,8 +11,14 @@ class Administration::PostsController < Administration::MainController
   end
 
   def update
-    @post.update_attributes(params[:post])
-    redirect_to administration_post_path
+    if @post.update_attributes(params[:post])
+      flash[:notice] = "Post successfully updated"
+      redirect_to administration_post_path
+    else
+      flash[:error] = @post.errors.full_messages
+      render :action => :edit
+    end
+
   end
 
   def show
@@ -29,7 +35,7 @@ class Administration::PostsController < Administration::MainController
       flash[:notice] = "Post successfully saved"
       redirect_to administration_post_path(@post)
     else
-      flash[:error] = "All fields should not be null"
+      flash[:error] = @post.errors.full_messages
       render :action => :new
     end
   end
