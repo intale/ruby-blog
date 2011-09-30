@@ -1,8 +1,8 @@
 module UsersHelper
 
-  def truncate_html(html,post)
+  def truncate_html(post)
     result=''
-    Nokogiri::HTML.fragment(html).children.each {|elem| result+=elem.to_html if result.length < post.truncate_character}
+    Nokogiri::HTML.fragment(post.message).children.each {|elem| result+=elem.to_html if result.length < post.truncate_character}
     result
   end
 

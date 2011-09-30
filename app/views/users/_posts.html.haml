@@ -8,7 +8,7 @@
         %span.admin_span{:style=>"color: green;"} #{post.admin.nick}
         =time_ago_in_words(post.created_at)
         ago
-      = raw truncate_html(post.message,post)
+      = raw truncate_html(post)
       .clear
       .more
         =link_to "Read More", show_post_comments_path(post)
