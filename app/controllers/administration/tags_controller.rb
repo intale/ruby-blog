@@ -29,7 +29,7 @@ class Administration::TagsController < Administration::MainController
   end
 
   def search_tag
-    tag = Tag.where("LOWER(name) LIKE (?)", "%#{params[:q]}%")
+    tag = Tag.where("LOWER(name) LIKE (?)", "%#{params[:q].downcase}%")
     render :text => tag.map(&:name).uniq.join("\n")
   end
 
