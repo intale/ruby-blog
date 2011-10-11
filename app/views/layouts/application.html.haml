@@ -3,8 +3,8 @@
   %head
     %title= @meta_title || "RubyBlog"
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    %meta{:content => @page_tags || "", :name => "keywords"}
-    %meta{:content => @meta_title || "", :name => "description"}/
+    %meta{:content => @page_tags || "ruby on rails blog", :name => "keywords"}
+    %meta{:content => @meta_title || "rubyblog ruby on rails blog", :name => "description"}/
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
