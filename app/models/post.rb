@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
   scope :status, lambda{where("status='false'")}
 
   def to_param
-    "#{id}-#{subject.parameterize}"
+    "#{id}-#{RusAlpha.translate(subject.to_s).parameterize}"
   end
 
 end
