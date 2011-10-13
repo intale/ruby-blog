@@ -20,7 +20,7 @@ gem 'devise'
 gem 'haml'
 gem 'ruby_parser'
 gem 'hpricot'
-gem 'will_paginate', :git => "git://github.com/JackDanger/will_paginate.git"
+gem 'will_paginate', "3.0.2"
 gem "ckeditor"
 gem "paperclip", "~> 2.4"
 gem "nokogiri", :require => 'nokogiri'
