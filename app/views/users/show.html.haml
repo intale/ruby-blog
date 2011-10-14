@@ -10,6 +10,7 @@
       - @post.tags.all.each do |tag|
         |
         = link_to tag.name, tags_path(tag.name)
+  %g:plusone{:size => "medium"}
   .comments
     %h2
       Comments
