@@ -4,7 +4,7 @@ class Administration::PostsController < Administration::MainController
 
   def index
     @search = Post.includes(:admin).search(params[:search] || {"meta_sort" => "id.asc"})
-    @posts = @search.paginate(:per_page => 20, :page => params[:page], :separator => '')
+    @posts = @search.paginate(:per_page => 20, :page => params[:page])
   end
 
   def edit
