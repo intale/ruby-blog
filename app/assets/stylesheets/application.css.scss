@@ -224,6 +224,15 @@ input, select, textarea {
     &:hover {
       color: #e82822; } } }
 
+.current{
+    padding: 1px 4px;
+    background: #cccccc;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -khtml-border-radius:3px;
+    -border-radius:3px;
+}
+
 /* ----- footer styles ----- */
 
 .footer {
