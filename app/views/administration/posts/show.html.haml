@@ -43,11 +43,11 @@
               %p
                 %strong
                   Created at:
-                = l(comment.created_at,:format => :short)
+                = l(comment.created_at,:format => :long)
               %p
                 %strong
                   Updated at:
-                = l(comment.updated_at,:format => :short)
+                = l(comment.updated_at,:format => :long)
               %p
                 \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_administration_comment_path(comment)}
                 |
