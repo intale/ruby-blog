@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :find_post, :except => [:index]
 
   def index
-    @posts = Post.includes(:admin, :tags).order("posts.created_at DESC").status.paginate(:per_page => 5, :page => params[:page])
+    @posts = Post.includes(:admin, :tags).order("posts.created_at DESC").enabled.paginate(:per_page => 5, :page => params[:page])
   end
 
   def show
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   private
 
   def find_post
-    unless @post = Post.includes(:tags,:comments).status.find_by_id(params[:id])
+    unless @post = Post.includes(:tags,:comments).enabled.find_by_id(params[:id])
       redirect_to root_path
       flash[:error] = "Post not found"
     end

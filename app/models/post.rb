@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
     self.message = Nokogiri::HTML.parse(self.message).search("body").inner_html
   end
 
-  scope :status, lambda{where("status='false'")}
+  scope :enabled, lambda{ where(" \"posts\".status = 'false' ") }
 
   def to_param
     "#{id}-#{RusAlpha.translate(subject.to_s).parameterize}"
