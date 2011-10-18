@@ -21,7 +21,7 @@
             %td
               = link_to admin.nick, administration_admin_path(admin)
             %td
-              = admin.created_at
+              = l(admin.created_at, :format => :long)
             %td.last
               = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_admin_path(admin)
               |
