@@ -154,7 +154,6 @@ input, select, textarea {
 
 .content {
   position: relative;
-  background: url("bk.png") repeat-y;
   padding: 0 0 60px 0;
   height: 1%; }
 
@@ -225,6 +224,13 @@ input, select, textarea {
     &:hover {
       color: #e82822; } } }
 
+.current{
+    padding: 1px 4px;
+    background: #cccccc;
+    -webkit-border-radius:4px;
+    -moz-border-radius:3px;
+    -khtml-border-radius:8px;
+}
 /* ----- footer styles ----- */
 
 .footer {
