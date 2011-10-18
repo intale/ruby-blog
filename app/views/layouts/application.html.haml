@@ -9,16 +9,6 @@
     = javascript_include_tag "application"
     = javascript_include_tag "https://apis.google.com/js/plusone.js"
     = csrf_meta_tags
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-26174162-1']);
-      _gaq.push(['_setDomainName', 'is-valid.org']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
   %body
     / main styles
     .main.index
@@ -61,5 +51,5 @@
     / /main styles
     / F O O T E R  start
     .footer
-      \© Copyright &copy; #{Time.now.year} Ruby Blog by #{link_to "Max Dolgih", "https://github.com/hiddenfile"} & #{link_to "Ivan Dzyzenko", "https://github.com/intale"}
+      \ Copyright &copy; #{Time.now.year} Ruby Blog by #{link_to "Max Dolgih", "https://github.com/hiddenfile"} & #{link_to "Ivan Dzyzenko", "https://github.com/intale"}
     / F O O T E R  end
