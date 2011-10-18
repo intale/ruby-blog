@@ -7,7 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require users
-//= require ga
 
 $(document).ready(function(){
    $("#submit-search").click(function(){
