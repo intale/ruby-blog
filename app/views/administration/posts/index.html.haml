@@ -17,7 +17,7 @@
             %td
               = post.subject
             %td
-              = post.created_at
+              = l(post.created_at, :format => :long)
             %td.last
               = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_post_path(post)
               |
