@@ -8,5 +8,6 @@ class Tag < ActiveRecord::Base
 
   def normalize_tag
     self.name.strip!
+    self.name.gsub!(/[^\w|^\s]/, "_")
   end
 end
