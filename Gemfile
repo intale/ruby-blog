@@ -11,6 +11,7 @@ gem 'pg'
 gem 'passenger'
 gem 'sass-rails'
 # Asset template engines
+gem 'sitemap_generator'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'web-app-theme'
