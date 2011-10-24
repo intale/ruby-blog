@@ -9,6 +9,8 @@
       = @post.subject
     .inner
       = form_for @post, :url => administration_post_path(@post) do |f|
+        = f.label "Time Created:"
+        = f.datetime_select :created_at, :default => Time.now
         = render :partial => 'form', :locals => {:f => f}
       .actions-bar.wat-cf
         .actions
