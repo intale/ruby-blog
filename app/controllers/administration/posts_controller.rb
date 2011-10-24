@@ -19,7 +19,6 @@ class Administration::PostsController < Administration::MainController
       flash[:error] = @post.errors.full_messages
       render :action => :edit
     end
-
   end
 
   def show
@@ -35,6 +34,7 @@ class Administration::PostsController < Administration::MainController
     if @post.save
       flash[:notice] = "Post successfully saved"
       redirect_to administration_post_path(@post)
+      update_sitemap
     else
       flash[:error] = @post.errors.full_messages
       render :action => :new
@@ -45,6 +45,7 @@ class Administration::PostsController < Administration::MainController
     @post.destroy
     flash[:notice] = "Destroyed successfully"    
     redirect_to administration_posts_path
+    update_sitemap
   end
 
   def preview
@@ -57,6 +58,10 @@ class Administration::PostsController < Administration::MainController
 
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def update_sitemap
+    `rake sitemap:refresh`
   end
 
 end
