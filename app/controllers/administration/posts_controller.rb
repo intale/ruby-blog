@@ -34,7 +34,7 @@ class Administration::PostsController < Administration::MainController
     if @post.save
       flash[:notice] = "Post successfully saved"
       redirect_to administration_post_path(@post)
-      update_sitemap
+      update_sitemap if !@post.status
     else
       flash[:error] = @post.errors.full_messages
       render :action => :new
@@ -61,7 +61,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def update_sitemap
-    `rake sitemap:refresh`
+    `rake sitemap:refresh`  #TODO remove this insane
   end
 
 end
