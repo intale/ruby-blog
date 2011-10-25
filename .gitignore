@@ -10,3 +10,4 @@ public/ckeditor_assets/*
 db/schema.rb
 app/assets/images/avatar/*
 public/assets/*
+public/sitemaps/*
