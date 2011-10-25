@@ -61,7 +61,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def update_sitemap
-    `rake sitemap:refresh`  #TODO remove this insane
+    `rake sitemap:refresh RAILS_ENV=production`  #TODO remove this insane
   end
 
 end
