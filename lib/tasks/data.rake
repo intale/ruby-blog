@@ -13,17 +13,8 @@ namespace :data do
 
     Post.all.each do |post|
       html = Nokogiri::HTML(post.message)
-      update = false
-      html.xpath("//a").each do |link|
-        if link.attribute('href')
-          unless link.attribute('href').value.start_with?("http://is-valid.org")
-            link['rel'] = 'nofollow'
-            update = true
-          end
-        end
-      end
-
-      post.update_attribute(:message, html.to_html) if update
+      html.xpath("//a").each { |link|  link['rel'] = 'nofollow' }
+      post.update_attribute(:message, html.to_html)
     end
   end
 end
