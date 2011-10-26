@@ -6,7 +6,8 @@ class Admin < ActiveRecord::Base
 
   has_many :posts
 
-  validates :password, :confirmation => true, :if => :password_required?
+  validates :password, :presence => true, :length => {:minimum => 6, :maximum => 20},
+                       :confirmation => true, :if => :password_required?
   validates :username, :email, :nick,
             :presence => true,
             :length => {:minimum => 3, :maximum => 200},
