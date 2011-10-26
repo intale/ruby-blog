@@ -6,7 +6,6 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem "meta_search", "=1.1.1"
-
 gem 'pg'
 gem 'passenger'
 gem 'sass-rails'
@@ -38,4 +37,8 @@ gem 'simple_captcha', :git => 'git://github.com/intale/simple-captcha.git'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'test-unit'
+  gem "factory_girl_rails"
+  gem 'shoulda'
+  gem 'database_cleaner'
 end
