@@ -11,7 +11,7 @@ namespace :data do
   task :correct_out_links => :environment do
     require 'nokogiri'
 
-    Post.find_each do |post|
+    Post.all.each do |post|
       html = Nokogiri::HTML(post.message)
       update = false
       html.xpath("//a").each do |link|
@@ -20,9 +20,6 @@ namespace :data do
             link['rel'] = 'nofollow'
             update = true
           end
-        else
-          link.remove()
-          update = true
         end
       end
 
