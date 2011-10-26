@@ -6,4 +6,15 @@ namespace :data do
        puts "\n\nDone! Now you can log in with username 'admin' and password 'admin' at /admins/sign_in"
      end
   end
+
+  desc "Check content on out links and adding rel tag for it"
+  task :correct_out_links => :environment do
+    require 'nokogiri'
+
+    Post.all.each do |post|
+      html = Nokogiri::HTML(post.message)
+      html.xpath("//a").each { |link|  link['rel'] = 'nofollow' }
+      post.update_attribute(:message, html.to_html)
+    end
+  end
 end
