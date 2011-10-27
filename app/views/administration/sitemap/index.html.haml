@@ -1,0 +1,19 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "List", "#"
+      %li= link_to "Generate", administration_sitemap_index_path, :method => :post
+  .content
+    %h2.title SiteMap files
+    .inner
+      %table.table
+        %tr
+          %th= "Name"
+          %th= "Created at"
+
+        - @files.each do |file|
+          %tr{:class => cycle("odd", "even")}
+            %td
+              = file[:name]
+            %td
+              = time_ago_in_words(file[:date])+" ago"
