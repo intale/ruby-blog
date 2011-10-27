@@ -1,14 +1,10 @@
 class Administration::SitemapController < Administration::MainController
   def index
-    @files = []
-    Dir.glob(Rails.root.to_s+"/public/sitemaps/*").each do |path|
-      @files << {:name => File.basename(path), :date => File.ctime(path)}
-    end
-
+    @files = Dir[Rails.public_path + '/sitemaps/' + '*.xml.gz'].map {|x| {:name => File.basename(x), :date => File.ctime(x)}}
   end
 
   def create
     %x[rake 'sitemap:refresh']
-    redirect_to administration_sitemap_index_path
+    redirect_to administration_sitemap_index_path, :notice => 'Successfully generated...'
   end
 end
