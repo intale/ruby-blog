@@ -1,6 +1,7 @@
 class Administration::SitemapController < Administration::MainController
   def index
-    @files = Dir[Rails.public_path + '/sitemaps/' + '*.xml.gz'].map {|x| {:name => File.basename(x), :date => File.ctime(x)}}
+    parse_path = Rails.public_path + '/sitemaps/' + '*.xml.gz'
+    @files = Dir[parse_path].map {|x| {:name => File.basename(x), :date => File.ctime(x)}}
   end
 
   def create

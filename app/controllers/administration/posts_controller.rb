@@ -34,7 +34,6 @@ class Administration::PostsController < Administration::MainController
     if @post.save
       flash[:notice] = "Post successfully saved"
       redirect_to administration_post_path(@post)
-      update_sitemap if !@post.status
     else
       flash[:error] = @post.errors.full_messages
       render :action => :new
@@ -45,7 +44,6 @@ class Administration::PostsController < Administration::MainController
     @post.destroy
     flash[:notice] = "Destroyed successfully"    
     redirect_to administration_posts_path
-    update_sitemap
   end
 
   def preview
@@ -59,9 +57,4 @@ class Administration::PostsController < Administration::MainController
   def find_post
     @post = Post.find(params[:id])
   end
-
-  def update_sitemap
-    `rake sitemap:refresh RAILS_ENV=production`  #TODO remove this insane
-  end
-
 end

@@ -1,4 +1,5 @@
 SitemapGenerator::Sitemap.default_host = "http://is-valid.org"
+# if change this path crashed sitemap tab content in admin panel
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
