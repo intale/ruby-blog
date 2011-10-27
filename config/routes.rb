@@ -1,6 +1,5 @@
 RubyBlog::Application.routes.draw do
   devise_for :admins
-
   root :to => 'users#index'
   scope "/" do
     get "/post/:id" => "users#show", :as => :show_post_comments
@@ -22,6 +21,7 @@ RubyBlog::Application.routes.draw do
     end
     resources :comments, :except => [:new, :create]
     resources :tags
+    resources :sitemap, :only => [:index, :create]
   end
   delete "/administration/tags/destroy/:id" => "administration/tags#destroy!", :as => :administration_destroy_tag
   get "/administration/search_tag" => "administration/tags#search_tag", :as => :administration_search_tag
