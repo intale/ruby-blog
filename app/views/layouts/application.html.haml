@@ -1,10 +1,10 @@
 !!!
 %html{:dir => "ltr", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title= @meta_title || "RubyBlog"
+    %title= meta_content[:title]
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    %meta{:content => @page_tags || "ruby on rails blog", :name => "keywords"}
-    %meta{:content => @meta_title || "rubyblog ruby on rails blog", :name => "description"}/
+    %meta{:content => meta_content[:keywords], :name => "keywords"}
+    %meta{:content => meta_content[:description], :name => "description"}/
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = javascript_include_tag "https://apis.google.com/js/plusone.js"
