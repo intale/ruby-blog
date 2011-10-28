@@ -14,6 +14,6 @@
         - @files.each do |file|
           %tr{:class => cycle("odd", "even")}
             %td
-              = file[:name]
+              = link_to file[:name], '/sitemaps/'+file[:name]
             %td
               = time_ago_in_words(file[:date])+" ago"
