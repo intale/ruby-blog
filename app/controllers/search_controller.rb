@@ -11,8 +11,8 @@ class SearchController < ApplicationController
 
   private
   def set_request
-    @search_request = params[:request].to_s
-    if @search_request.empty?
+    @search_request = params[:request]
+    if @search_request.blank?
       redirect_to root_path
     end
   end
