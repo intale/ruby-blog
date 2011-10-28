@@ -16,7 +16,7 @@ module ApplicationHelper
         end
         { :title => "RubyBlog, страница #{page_number}", :keywords => @tags.map(&:name).join(" "), :description => "Блог, созданый и посвященный Ruby on Rails." }
       when /\/post\/\d+/
-        { :title => @post.subject, :keywords => @post.tags.map(&:name).join(" "), :description => "#{@post.subject}. #{truncate_html(@post)}" }
+        { :title => @post.subject, :keywords => @post.tags.map(&:name).join(" "), :description => "#{@post.subject}. #{Nokogiri::HTML.fragment(truncate_html(@post)).content}" }
       else
         { :title => "RubyBlog", :keywords => @tags.map(&:name).join(" "), :description => "Блог, созданый и посвященный Ruby on Rails." }
     end
