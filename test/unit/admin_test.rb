@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AdminTest < Test::Unit::TestCase
-
+  subject { Factory(:admin) }
   should have_many(:posts)
 
   should validate_presence_of :email

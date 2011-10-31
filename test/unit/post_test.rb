@@ -11,5 +11,16 @@ class PostTest < Test::Unit::TestCase
   should validate_presence_of :message
   should validate_numericality_of :truncate_character
   should_not allow_mass_assignment_of(:admin_id)
+
+  context "update post message" do
+    setup do
+      @post=Post.new(:message => '<html><head></head><body><div><f>bla bla</div></body></html></f>')
+    end
+
+    should "save only <body>...</body>" do
+      assert_not_equal(@post.message,@post.update_post_message)
+    end
+  end
+
 end
 
