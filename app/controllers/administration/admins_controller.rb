@@ -48,6 +48,7 @@ class Administration::AdminsController < Administration::MainController
   private
 
   def find_admin
+
     @admin=Admin.find_by_id(params[:id])
     unless @admin
       flash[:error]="Admin with id #{params[:id]} does not exist!"
