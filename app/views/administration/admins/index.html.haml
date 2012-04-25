@@ -26,8 +26,11 @@
               = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_admin_path(admin)
               |
               \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_administration_admin_path(admin)}
-              |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", administration_admin_path(admin), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+
+              -if current_admin.superadmin
+                |
+                -#(admin.enable? "Enable" : "Disable")  "#{admin.enable? 'Enable':'Disable'}"
+                \#{link_to "#{t("web-app-theme.delete", :default => admin.enable ? "Enable" : "Disable")}", administration_admin_path(admin), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
       .actions-bar.wat-cf
         .actions
 - content_for :sidebar, render(:partial => 'sidebar')

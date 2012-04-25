@@ -39,10 +39,16 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def destroy
-    flash[:error] = "Nel'zya udalit' admina ya skazal!"  #FIXME
+    @admin.enable= @tmp= (@admin.enable)? false : true
+    if @admin.update_attributes(params[:admin])
+      flash[:notice] = "#{@admin.username} is #{@tmp?'enable':'disable'}"
+      redirect_to administration_admins_path
+    end
+
+    #flash[:error] = "Nel'zya udalit' admina ya skazal!"  #FIXME
     #@admin.destroy
     #flash[:notice] = "#{@admin.username} removed successfully"
-    redirect_to administration_admins_path
+    #redirect_to administration_admins_path
   end
 
   private
