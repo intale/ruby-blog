@@ -26,7 +26,7 @@
               = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_admin_path(admin)
               |
               \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_administration_admin_path(admin)}
-              -if current_admin.email==@superadmin[0] || current_admin.email==@superadmin[1]
+              -if current_admin.superadmin?
                 |
                 \#{link_to "#{t("web-app-theme.delete", :default => admin.locked_at? ? "Enable" : "Disable")}", administration_admin_path(admin), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
       .actions-bar.wat-cf

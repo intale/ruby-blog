@@ -15,7 +15,15 @@ class Admin < ActiveRecord::Base
   validates :email, :format => {:with => Devise.email_regexp}
 
 
+
+  SUPERADMINS = %w(intale.a@gmail.com max.dolgih@faceit.com.ua)
+
+  def superadmin?
+    Admin::SUPERADMINS.include?(email)
+  end
+
   protected
+
 
   def password_required?
     new_record? || !password.nil? || !password_confirmation.nil?

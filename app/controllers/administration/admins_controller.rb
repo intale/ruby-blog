@@ -5,7 +5,7 @@ class Administration::AdminsController < Administration::MainController
   def index
     @search = Admin.search(params[:search] || {"meta_sort" => "id.asc"})
     @admins = @search.paginate(:per_page => 10, :page => params[:page])
-    @superadmin=["intale.a@gmail.com", "max.dolgih@faceit.com.ua"]
+
   end
 
   def show
@@ -40,18 +40,15 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def destroy
-    @admin.locked_at? ? @admin.unlock_access! :  @admin.lock_access!
-    if @admin.update_attributes(params[:admin])
+
+    if @admin.locked_at?
+      @admin.unlock_access!
       flash[:notice] = "#{@admin.username} is #{@admin.locked_at? ? 'enable':'disable'}"
-      redirect_to administration_admins_path
     else
       flash[:error] = "can not lock/unlock"
-      redirect_to administration_admins_path
+      @admin.lock_access!
     end
-    #flash[:error] = "Nel'zya udalit' admina ya skazal!"  #FIXME
-    #@admin.destroy
-    #flash[:notice] = "#{@admin.username} removed successfully"
-    #redirect_to administration_admins_path
+    redirect_to administration_admins_path
   end
 
   private
