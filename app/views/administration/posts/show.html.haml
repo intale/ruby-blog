@@ -54,4 +54,3 @@
                 \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", administration_comment_path(comment), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
       = link_to "New comment", new_administration_post_comment_path(@post)
 - content_for :sidebar, render(:partial => 'sidebar', :locals => {:post => @post})
-

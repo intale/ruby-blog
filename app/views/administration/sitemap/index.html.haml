@@ -2,7 +2,7 @@
   .secondary-navigation
     %ul.wat-cf
       %li.first.active= link_to "List", "#"
-      %li= link_to "Generate", administration_sitemap_index_path, :confirm => 'Выдействительно хотите создать карту сайта?', :method => :post
+      %li= link_to "Generate", administration_sitemap_index_path, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :method => :post
   .content
     %h2.title SiteMap files
     .inner

@@ -9,8 +9,6 @@ class Administration::PostsController < Administration::MainController
 
   def edit
     @post = Post.includes(:tags).find(params[:id])
-    #@search = Post.includes(:admin).search(params[:search] || {"meta_sort" => "id.asc"})
-
   end
 
   def update
@@ -29,7 +27,6 @@ class Administration::PostsController < Administration::MainController
 
   def new
     @post = Post.new
-
   end
 
   def create

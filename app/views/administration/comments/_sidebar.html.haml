@@ -2,12 +2,16 @@
   %h3 Search
   .comment_search
     = form_for @search, :url => administration_comments_path, :html => {:method => :get} do |f|
-
       .search_attr
         %p
           = f.label :created_at, "Select Day "
-          -#= f.date_select :created_at
       %p
         = f.submit "Search"
         = link_to "Reset",administration_comments_path
-
+.block
+  %h3 Links
+  %ul.navigation
+    %li
+      %a{:href => "#"} Link 1
+    %li
+      %a{:href => "#"} Link 2

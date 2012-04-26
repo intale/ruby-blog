@@ -2,24 +2,25 @@
   %h3 Search
   .post_search
     = form_for @search, :url => administration_posts_path, :html => {:method => :get} do |f|
-
       .search_attr
         %p
           = f.label :created_at, "Select Day "
-          -#= f.date_select( :created_at)
-          -#= f.distance_of_time_in_words(Time.now, Time.now + 50.minutes)
-          -#= f.select_date()
-
         %p
-
           = f.check_box :status_is_false
           = f.label :status, "Enable "
         %p
           = f.check_box :status_is_true
           = f.label :status, "Disable "
-
-
       %p
         = f.submit "Search"
         = link_to "Reset",administration_posts_path
-
+.block
+  %h3 Manage tags
+  %ul.navigation
+    -#- post.tags.each do |tag| #не видит post
+      = render :partial => 'tag', :locals => {:tag => tag, :post => post}
+  .new-tag
+    -#= form_for :tag, :html => {:id => "tag-form"} do |f|
+      = hidden_field_tag :post_id, post.id
+      = f.text_field :name
+      = f.submit "Add Tag"
