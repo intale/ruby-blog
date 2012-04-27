@@ -43,10 +43,10 @@ class Administration::AdminsController < Administration::MainController
 
     if @admin.locked_at?
       @admin.unlock_access!
-      flash[:notice] = "#{@admin.username} is #{@admin.locked_at? ? 'enable':'disable'}"
+      flash[:notice] = "#{@admin.username} is enable"
     else
-      flash[:error] = "can not lock/unlock"
       @admin.lock_access!
+      flash[:notice] = "#{@admin.username} is disable"
     end
     redirect_to administration_admins_path
   end

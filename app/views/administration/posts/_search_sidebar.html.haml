@@ -1,0 +1,20 @@
+.block.notice
+  %h3 Search
+  .post_search
+    = form_for @search, :url => administration_posts_path, :html => {:method => :get} do |f|
+      .search_attr
+        %p
+          = f.label :created_at_gte, "Begin Date "
+          = f.date_select :created_at_gte
+        %p
+          = f.label :created_at_lte, "End Date "
+          = f.date_select :created_at_lte
+        %p
+          = f.check_box :status_is_false
+          = f.label :status, "Enable "
+        %p
+          = f.check_box :status_is_true
+          = f.label :status, "Disable "
+      %p
+        = f.submit "Search"
+        = link_to "Reset",administration_posts_path
