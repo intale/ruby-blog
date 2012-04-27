@@ -40,13 +40,16 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def destroy
-
-    if @admin.locked_at?
-      @admin.unlock_access!
-      flash[:notice] = "#{@admin.username} is enable"
+    if current_admin.superadmin?
+      if @admin.locked_at?
+        @admin.unlock_access!
+        flash[:notice] = "#{@admin.username} is enable"
+      else
+        @admin.lock_access!
+        flash[:notice] = "#{@admin.username} is disable"
+      end
     else
-      @admin.lock_access!
-      flash[:notice] = "#{@admin.username} is disable"
+      flash[:error]="You can't block"
     end
     redirect_to administration_admins_path
   end
