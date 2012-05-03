@@ -12,6 +12,7 @@
         %tr
           %th.first= sort_link @search, :id, "ID"
           %th= sort_link @search, :nick, t("activerecord.attributes.administration_admin.nick", :default => t("activerecord.labels.nick", :default => "Nick"))
+          %th= sort_link @search, :locked_at, t("web-app-theme.created_at", :default => t("activerecord.labels.locked", :default => "Enabled"))
           %th= sort_link @search, :created_at, t("web-app-theme.created_at", :default => "Created at")
           %th.last &nbsp;
         - @admins.each do |admin|
@@ -20,6 +21,8 @@
               = admin.id
             %td
               = link_to admin.nick, administration_admin_path(admin)
+            %td
+              = admin.locked_at? ? "Disabled":"Enabled"
             %td
               = l(admin.created_at, :format => :long)
             %td.last
