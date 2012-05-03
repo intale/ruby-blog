@@ -5,7 +5,7 @@
       .search_attr
         %p
           = f.label :created_at_gte, "Begin Date "
-          = f.date_select :created_at_gte
+          = f.date_select :created_at_gte, :default=>5.years.ago
         %p
           = f.label :created_at_lte, "End Date "
           = f.date_select :created_at_lte
