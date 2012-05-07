@@ -4,7 +4,7 @@
     = form_for @search, :url => administration_admins_path, :html => {:method => :get} do |f|
       .search_attr
         %p
-          = f.check_box :enable_is_false
+          = f.check_box :locked_at_is_not_null
           = f.label :enable, "Disable "
         %p
           = f.submit "Search"
