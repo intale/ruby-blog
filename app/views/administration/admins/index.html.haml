@@ -12,6 +12,7 @@
         %tr
           %th.first= sort_link @search, :id, "ID"
           %th= sort_link @search, :nick, t("activerecord.attributes.administration_admin.nick", :default => t("activerecord.labels.nick", :default => "Nick"))
+          %th= sort_link @search, :locked_at, t("web-app-theme.created_at", :default => t("activerecord.labels.locked", :default => "Enabled"))
           %th= sort_link @search, :created_at, t("web-app-theme.created_at", :default => "Created at")
           %th.last &nbsp;
         - @admins.each do |admin|
@@ -21,13 +22,16 @@
             %td
               = link_to admin.nick, administration_admin_path(admin)
             %td
+              = admin.locked_at? ? "Disabled":"Enabled"
+            %td
               = l(admin.created_at, :format => :long)
             %td.last
               = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_admin_path(admin)
               |
               \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_administration_admin_path(admin)}
-              |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", administration_admin_path(admin), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+              -if current_admin.superadmin?
+                |
+                \#{link_to "#{t("web-app-theme.delete", :default => admin.locked_at? ? "Enable" : "Disable")}", administration_admin_path(admin), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
       .actions-bar.wat-cf
         .actions
 - content_for :sidebar, render(:partial => 'sidebar')
