@@ -53,16 +53,16 @@
     .footer
       Copyright &copy; #{Time.now.year} Ruby Blog by #{link_to "Max Dolgih", "https://github.com/hiddenfile", :rel => "nofollow"} & #{link_to "Ivan Dzyzenko", "https://github.com/intale", :rel => "nofollow"}
     / F O O T E R  end
-    = javascript_tag
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-26174162-1']);
-      _gaq.push(['_setDomainName', 'is-valid.org']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-      })();
+= javascript
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26174162-1']);
+  _gaq.push(['_setDomainName', 'is-valid.org']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
