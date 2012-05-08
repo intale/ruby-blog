@@ -14,7 +14,8 @@ class Admin < ActiveRecord::Base
             :uniqueness => { :case_sensitive => false }
   validates :email, :format => {:with => Devise.email_regexp}
 
-
+  scope :enabled, where(:locked_at => nil)
+  scope :subscribed, enabled.where(:subscribe => true)
 
   SUPERADMINS = %w(intale.a@gmail.com max.dolgih@faceit.com.ua)
 

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @comment = @post.comments.build(params[:comment])
     @comment.current_admin = current_admin
+
     if @comment.valid_with_captcha? and @comment.save
       render :json => {:comment => render_to_string(:partial => "comment", :locals => {:comment => @comment}), :captcha => render_to_string(:partial => "captcha")}
     else
