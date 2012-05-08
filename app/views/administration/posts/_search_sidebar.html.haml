@@ -4,6 +4,9 @@
     = form_for @search, :url => administration_posts_path, :html => {:method => :get} do |f|
       .search_attr
         %p
+          = f.label :nick, "Nick"
+          -#= collection_select @search, :admin_id, Admin.all, :id, :nick
+        %p
           = f.label :created_at_gte, "Begin Date "
           = f.date_select :created_at_gte, :default=>5.years.ago
         %p

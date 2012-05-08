@@ -11,6 +11,7 @@
         %tr
           %th= sort_link @search, :subject, "Subject"
           %th= sort_link @search, :created_at, "Created at"
+          %th= sort_link @search, :nick, t("activerecord.attributes.administration_admin.nick", :default => t("activerecord.labels.nick", :default => "Nick"))
           %th.last &nbsp;
         - @posts.each do |post|
           %tr{:class => cycle("odd", "even")}
@@ -18,6 +19,8 @@
               = post.subject
             %td
               = l(post.created_at, :format => :long)
+            %td
+              = link_to post.admin.nick, administration_admin_path(post.admin.nick)
             %td.last
               = link_to "#{t("web-app-theme.show", :default => "Show")}", administration_post_path(post)
               |
