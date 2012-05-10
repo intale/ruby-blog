@@ -2,7 +2,7 @@ class Admin < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable, :lockable, :unlock_strategy => :none
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :nick, :avatar
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :nick, :avatar, :subscribe
 
   has_many :posts
 
