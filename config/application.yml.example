@@ -1,16 +1,27 @@
-# Global application configuration
-
 development:
-  asset_host: "http://localhost:3000"
   mailer:
+    default_url_options:
+      host: "localhost:3000"
     delivery_method: 'smtp'
     smtp_settings:
       address: "smtp.gmail.com"
       port: 587
-      domain: "gmail.com"
-      user_name: "123"
-      password: "asda"
+      domain: 'is-valid.org'
+      user_name: "noreply@is-valid.org"
+      password: ""
       authentication: "plain"
       enable_starttls_auto: true
-  redis: "localhost:6379"
-  redis_cache: "localhost:6379:11"
+
+production:
+  mailer:
+    default_url_options:
+      host: "localhost:3000"
+    delivery_method: 'smtp'
+    smtp_settings:
+      address: "smtp.gmail.com"
+      port: 587
+      domain: 'is-valid.org'
+      user_name: "noreply@is-valid.org"
+      password: ""
+      authentication: "plain"
+      enable_starttls_auto: true
