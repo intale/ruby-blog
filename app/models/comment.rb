@@ -4,12 +4,18 @@ class Comment < ActiveRecord::Base
   attr_accessor :current_admin
   belongs_to :post
 
+  after_create :notify_admin
+
   validates :content, :post_id, :author, :presence => true
   validates :content, :length => {:minimum => 1, :maximum => 10000}
   validates :author, :length => {:minimum => 3, :maximum => 20}
   validate :check_author
 
   protected
+
+  def notify_admin
+    AdminMailer.comment_notifier(id).deliver
+  end
 
   def check_author
     nick = Admin.select(:nick).find_by_nick(self.author.strip.downcase)

@@ -28,6 +28,11 @@
         = @admin.email
       %p
         %b
+          = t("activerecord.attributes.administration_admin.subscribe", :default => t("activerecord.labels.subscribe", :default => "Subscribe"))
+          \:
+        = @admin.subscribe
+      %p
+        %b
           = t("activerecord.attributes.administration_admin.encrypted_password", :default => t("activerecord.labels.encrypted_password", :default => "Encrypted password"))
           \:
         = @admin.encrypted_password
