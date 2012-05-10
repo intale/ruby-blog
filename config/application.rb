@@ -1,13 +1,25 @@
 require File.expand_path('../boot', __FILE__)
 
+
 require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+require File.expand_path("lib/config_file.rb")
+
 module RubyBlog
+  include ConfigFile
+  has_config 'application.yml'
+
   class Application < Rails::Application
+    if RubyBlog.config[:mailer]
+      config.action_mailer.delivery_method = RubyBlog.config[:mailer][:delivery_method].to_sym if RubyBlog.config[:mailer][:delivery_method]
+      config.action_mailer.smtp_settings = RubyBlog.config[:mailer][:smtp_settings].symbolize_keys if RubyBlog.config[:mailer][:smtp_settings]
+      config.action_mailer.default_url_options = RubyBlog.config[:mailer][:default_url_options].symbolize_keys if RubyBlog.config[:mailer][:default_url_options]
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

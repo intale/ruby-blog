@@ -1,0 +1,6 @@
+<p>
+  <strong><%= @comment.author %></strong>, comment this  <%= link_to 'post', show_post_comments_url(@comment.post.id) %>
+</p>
+<p>--------------------------------</p>
+<p><%= @comment.content %></p>
+
