@@ -17,6 +17,12 @@
             Количество символов на главное странице:
             =@post.truncate_character
           %p
+            Created at:
+            = l(@post.created_at,:format => :long)
+          %p
+            Author:
+            = @post.admin.nick
+          %p
             Статус:
             = @post.status ? "Disabled" : "Enabled"          
         = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_administration_post_path, :class => "button"
