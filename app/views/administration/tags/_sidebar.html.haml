@@ -9,11 +9,11 @@
       %h3 Search params:
       .search_attr
         %p
-          = f.check_box :status_is_true
-          = f.label :status, "Hidden "
+          = f.radio_button :status_equals, true
+          = f.label :status, "Hidden"
         %p
-          = f.check_box :status_is_false
-          = f.label :status, "Unhidden "
+          = f.radio_button :status_equals, false
+          = f.label :status, "Visible"
 
       %p
         = f.submit "Search"
