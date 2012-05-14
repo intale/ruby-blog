@@ -26,6 +26,13 @@ gem "ckeditor"
 gem "paperclip", "~> 2.4"
 gem "nokogiri", :require => 'nokogiri'
 gem 'simple_captcha', :git => 'git://github.com/intale/simple-captcha.git'
+
+#resque
+gem "redis", "~> 2.2.2"
+gem "resque", "~> 1.20.0"
+gem "resque_mailer", "~> 2.0.3"
+gem "resque-scheduler", "~> 2.0.0"
+gem "resque-retry", "~> 0.2.2"
 # Use unicorn as the web server
 # gem 'unicorn'
 

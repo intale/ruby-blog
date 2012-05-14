@@ -1,4 +1,5 @@
 class AdminMailer < ActionMailer::Base
+  include Resque::Mailer
   default from: "noreply@is-valid.org"
 
   def comment_notifier(comment)

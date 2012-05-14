@@ -14,7 +14,7 @@ class Comment < ActiveRecord::Base
   protected
 
   def notify_admin
-    AdminMailer.comment_notifier(id).deliver
+    AdminMailer.comment_notifier(id).deliver!
   end
 
   def check_author

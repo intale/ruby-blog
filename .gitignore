@@ -7,6 +7,8 @@ tmp/
 nbproject/*
 config/database.yml
 config/application.yml
+config/resque_schedule.yml
+config/redis.yml
 public/ckeditor_assets/*
 db/schema.rb
 app/assets/images/avatar/*
