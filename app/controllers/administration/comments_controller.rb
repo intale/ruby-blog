@@ -3,7 +3,7 @@ class Administration::CommentsController < Administration::MainController
   before_filter :find_comment, :except => [:index, :new, :create]
   before_filter :build_comment, :only => [:new, :create]
   def index
-    @search = Comment.includes(:post).search(params[:search] || {"meta_sort" => "id.asc"})
+    @search = Comment.includes(:post).search(params[:search] || {"meta_sort" => "id.desc"})
     @comments = @search.paginate(:per_page => 50, :page => params[:page])
   end
 

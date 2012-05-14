@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   attr_accessor :current_admin
   belongs_to :post
 
-  after_create :notify_admin
+  #after_create :notify_admin
 
   validates :content, :post_id, :author, :presence => true
   validates :content, :length => {:minimum => 1, :maximum => 10000}
@@ -14,7 +14,7 @@ class Comment < ActiveRecord::Base
   protected
 
   def notify_admin
-    AdminMailer.comment_notifier(id).deliver
+    AdminMailer.comment_notifier(id).deliver!
   end
 
   def check_author
