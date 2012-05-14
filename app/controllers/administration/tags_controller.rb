@@ -4,7 +4,7 @@ class Administration::TagsController < Administration::MainController
     before_filter :find_tag, :only => [:edit, :update, :destroy!, :destroy]
 
   def index
-    @search = Tag.search(params[:search] || {"meta_sort" => "id.asc"})
+    @search = Tag.search(params[:search] || {"meta_sort" => "name.asc"})
     @tags = @search.paginate(:per_page => 20, :page => params[:page])
   end
 
