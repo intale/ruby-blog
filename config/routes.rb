@@ -25,4 +25,5 @@ RubyBlog::Application.routes.draw do
   end
   delete "/administration/tags/destroy/:id" => "administration/tags#destroy!", :as => :administration_destroy_tag
   get "/administration/search_tag" => "administration/tags#search_tag", :as => :administration_search_tag
+  get "/administration/admins/disable/:id" => "administration/admins#disable", :as => :disable_administration_admin
 end

@@ -40,7 +40,22 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def destroy
-    if current_admin.superadmin?
+    if current_admin.superadmin? &&  !@admin.superadmin?
+      if @admin.posts.count==0
+        @admin.destroy
+        flash[:notice] = "#{@admin.username} is destroyed"
+      else
+        flash[:error]="You can't delete"
+      end
+    else
+      flash[:error]="You can't delete"
+    end
+    redirect_to administration_admins_path
+  end
+
+  def disable
+    @admin= Admin.find(params[:id])
+    if current_admin.superadmin? &&  !@admin.superadmin?
       if @admin.locked_at?
         @admin.unlock_access!
         flash[:notice] = "#{@admin.username} is enable"
