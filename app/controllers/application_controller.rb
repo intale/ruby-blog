@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :find_all_tags, :except => [:create]
 
   def find_all_tags
-    @tags = Tag.where("status='false'")
+    @tags = Tag.where("status='false'").order("name ASC")
   end
   protected
 
