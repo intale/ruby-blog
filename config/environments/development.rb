@@ -6,8 +6,7 @@ RubyBlog::Application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
+  config.eager_load = false
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
@@ -24,4 +23,8 @@ RubyBlog::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+
+  # Raise exception on mass assignment protection for Active Record models
+  #config.active_record.mass_assignment_sanitizer = :strict
+
 end

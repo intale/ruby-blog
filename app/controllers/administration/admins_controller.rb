@@ -3,9 +3,8 @@ class Administration::AdminsController < Administration::MainController
   before_filter :find_admin, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @search = Admin.search(params[:search] || {"meta_sort" => "id.asc"})
-    @admins = @search.paginate(:per_page => 10, :page => params[:page])
-
+    @search = Admin.search(admin_params || {"meta_sort" => "id.asc"})
+    @admins = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
   end
 
   def show
@@ -19,7 +18,7 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def update
-    if @admin.update_attributes(params[:admin])
+    if @admin.update_attributes(admin_params)
       flash[:notice] = "Account updated successfully"
       redirect_to administration_admin_path(@admin)
     else
@@ -29,7 +28,7 @@ class Administration::AdminsController < Administration::MainController
   end
 
   def create
-    @admin = Admin.new(params[:admin])
+    @admin = Admin.new(admin_params)
     if @admin.save
       flash[:notice] = "Account created successfully"
       redirect_to administration_admin_path(@admin)
@@ -55,6 +54,13 @@ class Administration::AdminsController < Administration::MainController
   end
 
   private
+
+  def admin_params
+    params.permit(:email, :password, :password_confirmation, :remember_me, :username, :nick, :avatar, :subscribe, :search, :page )
+  end
+
+
+
 
   def find_admin
     @admin=Admin.find_by_id(params[:id])

@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
-  apply_simple_captcha
-  attr_protected :post_id
+  #apply_simple_captcha
+
   attr_accessor :current_admin
   belongs_to :post
 

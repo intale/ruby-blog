@@ -1,10 +1,10 @@
 .block.notice
   %h3 Search
   .post_search
-    = form_for @search, :url => administration_admins_path, :html => {:method => :get} do |f|
+    = search_form_for @search, :url => administration_admins_path, :html => {:method => :get} do |f|
       .search_attr
         %p
-          = f.check_box :locked_at_is_not_null
+          = f.check_box :locked_at # не понимаю что за атрибут
           = f.label :enable, "Disable "
         %p
           = f.submit "Search"

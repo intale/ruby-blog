@@ -4,13 +4,13 @@
     = form_for @search, :url => administration_posts_path, :html => {:method => :get} do |f|
       .search_attr
         %p
-          = f.label :created_at_gte, "Begin Date "
-          = f.date_select :created_at_gte, :default=>5.years.ago
+          = f.label :created_at, "Begin Date "
+          = f.date_select :created_at, :default=>5.years.ago
         %p
-          = f.label :created_at_lte, "End Date "
-          = f.date_select :created_at_lte
+          = f.label :created_at, "End Date "
+          = f.date_select :created_at
         %p
-          = f.check_box :status_is_true
+          = f.check_box :status
           = f.label :status, "Disable "
       %p
         = f.submit "Search"
