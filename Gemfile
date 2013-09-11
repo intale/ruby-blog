@@ -26,7 +26,8 @@ gem 'will_paginate', '>=3.0.4'
 gem 'ckeditor'
 gem 'paperclip', '~> 2.4'
 gem 'nokogiri', :require => 'nokogiri'
-#gem 'simple_captcha', :git => 'git://github.com/intale/simple-captcha.git'
+gem 'simple_captcha', :git => 'git://github.com/Azdaroth/simple-captcha.git', :branch => 'rails-4'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
