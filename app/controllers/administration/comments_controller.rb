@@ -43,13 +43,18 @@ class Administration::CommentsController < Administration::MainController
   private
 
   def comment_params
-    params.permit(:post_id, :content, :author, :search, :page)
+  #.require(:comment)
+    params.permit(:post_id, :content, :author, :search, :page, :comment)
   end
+
+  #def comment_params2
+  #  params.require(:comment).permit(:post_id, :content, :author, :search, :page, :comment)
+  #end
 
   def build_comment
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(params[:comment])
-    @comment.current_admin=current_admin
+    @comment = @post.comments.build(comment_params)
+    @comment.current_admin=current_admin.id
   end
 
   def find_comment

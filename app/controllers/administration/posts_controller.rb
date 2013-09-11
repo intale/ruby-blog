@@ -8,7 +8,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def edit
-    @post = Post.includes(:tags).find(posts_params)
+    @post = Post.includes(:tags).find(params[:id])
   end
 
   def update
@@ -22,7 +22,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def show
-    @post = Post.includes([:comments, :tags]).find(posts_params)
+    @post = Post.includes([:comments, :tags]).find(params[:id])
   end
 
   def new
@@ -48,14 +48,14 @@ class Administration::PostsController < Administration::MainController
 
   def preview
     @tags = []
-    @post= Post.find_by(:id => posts_params) || Post.new
+    @post= Post.where(:id => params[:id]) || Post.new
     render :layout => 'application'
   end
 
   private
 
   def posts_params
-    params.permit(:admin_id, :subject, :message, :search, :admin_id, :search, :page)
+    params.permit(:admin_id, :subject, :message, :search, :admin_id, :search, :page, :status, :truncate_character )
   end
 
   def find_post
