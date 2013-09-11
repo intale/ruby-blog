@@ -3,9 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '= 4.0.0'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-gem 'ransack'
-#gem 'meta_search'#, '=1.1.1'
+gem 'ransack' # instead of Meta-search
 gem 'better_errors'
 gem 'pg'
 gem 'passenger'

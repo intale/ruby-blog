@@ -5,8 +5,6 @@ class Administration::CommentsController < Administration::MainController
   def index
     @search = Comment.includes(:post).search(comment_params || {"meta_sort" => "id.asc"})
     @comments = @search.result(distinct: true).paginate(:per_page => 50, :page => params[:page])
-    #@search = Comment.search(:content_contains => @search_request)#.paginate(:per_page => 10, :page => params[:page])
-    #@find = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
   end
 
   def edit
@@ -47,7 +45,6 @@ class Administration::CommentsController < Administration::MainController
   def comment_params
     params.permit(:post_id, :content, :author, :search, :page)
   end
-
 
   def build_comment
     @post = Post.find(params[:post_id])

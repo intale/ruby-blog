@@ -59,9 +59,6 @@ class Administration::AdminsController < Administration::MainController
     params.permit(:email, :password, :password_confirmation, :remember_me, :username, :nick, :avatar, :subscribe, :search, :page )
   end
 
-
-
-
   def find_admin
     @admin=Admin.find_by_id(params[:id])
     unless @admin

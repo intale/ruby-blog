@@ -4,7 +4,7 @@
     = search_form_for @search, :url => administration_admins_path, :html => {:method => :get} do |f|
       .search_attr
         %p
-          = f.check_box :locked_at # не понимаю что за атрибут
+          = f.check_box :locked_at#_is_not_null
           = f.label :enable, "Disable "
         %p
           = f.submit "Search"

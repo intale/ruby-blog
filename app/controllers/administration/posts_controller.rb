@@ -58,8 +58,6 @@ class Administration::PostsController < Administration::MainController
     params.permit(:admin_id, :subject, :message, :search, :admin_id, :search, :page)
   end
 
-
-
   def find_post
     @post = Post.find(params[:id])
   end
