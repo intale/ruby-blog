@@ -6,7 +6,7 @@ gem 'rails', '= 4.0.0'
 gem 'ransack' # instead of Meta-search
 gem 'better_errors'
 gem 'pg'
-gem 'passenger'
+#gem 'passenger'
 gem 'sass-rails'
 # Asset template engines
 gem 'sitemap_generator'
@@ -27,10 +27,10 @@ gem 'nokogiri', :require => 'nokogiri'
 gem 'simple_captcha', :git => 'git://github.com/Azdaroth/simple-captcha.git', :branch => 'rails-4'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
