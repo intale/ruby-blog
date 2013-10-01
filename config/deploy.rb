@@ -14,15 +14,17 @@ set :repository,  'git@github.com:SBS-team/ruby-blog.git' # Path to your reposit
 set :deploy_via, :remote_cache # Using cache. Deploying only changes.
 
 set :stages,          %w(preproduction production)
-set :default_stage,   'preproduction'
+#set :default_stage,   'preproduction'
+set :default_stage,    'production'
 set :keep_releases, 3
 
 set :migrate_target, :latest
 
-set (:rvm_ruby_string){"ruby-2.0.0-p247@ruby-blog#{stage}"}
+set (:rvm_ruby_string){"ruby-2.0.0-p247@ruby-blog"}
 
-after 'deploy:finalize_update', 'deploy:migrate'
-before 'deploy:migrate', 'config:symlink'
+after 'deploy:finalize_update', 'deploy:db_create'
+before 'deploy:db_create', 'config:symlink'
+after "deploy:db_create", 'deploy:migrate'
 
 before 'deploy:setup', 'rvm:install_ruby'
 after 'deploy:setup', 'config:setup_folders'
@@ -34,6 +36,7 @@ namespace :config do
     run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
     run "ln -nfs #{shared_path}/unicorn_pre.rb #{release_path}/config/unicorn_pre.rb"
+    run "ln -nfs #{shared_path}/application.yml #{release_path}/config/application.yml"
   end
 
   task :setup_folders do
@@ -48,6 +51,12 @@ namespace :rails do
   desc 'Open the rails console on one of the remote servers'
   task :console, roles: :app do
     exec "ssh -l #{user} '192.168.137.75' -t 'cd #{current_path} && bundle install && bundle exec rails c #{stage}'"
+  end
+end
+
+namespace :deploy do
+  task :db_create do
+    run "cd #{release_path}; RAILS_ENV=production rake db:create"
   end
 end
 
