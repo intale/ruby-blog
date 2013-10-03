@@ -1,5 +1,5 @@
 class Admin < ActiveRecord::Base
-  devise :database_authenticatable, :rememberable, :trackable, :lockable, :unlock_strategy => :none
+  devise :database_authenticatable, :rememberable, :trackable#, :lockable, :unlock_strategy => :none
 
   # Setup accessible (or protected) attributes for your model
 
