@@ -1,14 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '= 4.0.0'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-gem "meta_search", "=1.1.1"
-
+gem 'ransack' # instead of Meta-search
+gem 'better_errors'
 gem 'pg'
-gem 'passenger'
+#gem 'passenger'
 gem 'sass-rails'
 # Asset template engines
 gem 'sitemap_generator'
@@ -17,20 +15,23 @@ gem 'uglifier'
 gem 'web-app-theme'
 gem 'therubyracer'
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise', '3.0.0.rc'#, :github => 'plataformatec/devise'
+gem 'devise-encryptable'
 gem 'haml'
 gem 'ruby_parser'
 gem 'hpricot'
-gem 'will_paginate', "3.0.2"
-gem "ckeditor"
-gem "paperclip", "~> 2.4"
-gem "nokogiri", :require => 'nokogiri'
-gem 'simple_captcha', :git => 'git://github.com/intale/simple-captcha.git'
+gem 'will_paginate', '>=3.0.4'
+gem 'ckeditor'
+gem 'paperclip', '~> 2.4'
+gem 'nokogiri', :require => 'nokogiri'
+gem 'simple_captcha', :git => 'git://github.com/Azdaroth/simple-captcha.git', :branch => 'rails-4'
+
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
+gem "rvm-capistrano"
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

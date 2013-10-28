@@ -3,8 +3,8 @@ class Administration::PostsController < Administration::MainController
   before_filter :find_post, :only => [:update, :destroy]
 
   def index
-    @search = Post.includes(:admin).search(params[:search] || {"meta_sort" => "id.asc"})
-    @posts = @search.paginate(:per_page => 20, :page => params[:page])
+    @search = Post.includes(:admin).search(posts_params || {"meta_sort" => "id.asc"})
+    @posts = @search.result(distinct: true).paginate(:per_page => 20, :page => params[:page])
   end
 
   def edit
@@ -12,7 +12,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def update
-    if @post.update_attributes(params[:post])
+    if @post.update_attributes(posts_params)
       flash[:notice] = "Post successfully updated"
       redirect_to administration_post_path
     else
@@ -30,7 +30,7 @@ class Administration::PostsController < Administration::MainController
   end
 
   def create
-    @post = current_admin.posts.build(params[:post])
+    @post = current_admin.posts.build(posts_params)
     if @post.save
       flash[:notice] = "Post successfully saved"
       redirect_to administration_post_path(@post)
@@ -48,11 +48,15 @@ class Administration::PostsController < Administration::MainController
 
   def preview
     @tags = []
-    @post= Post.find_by_id(params[:id]) || Post.new
+    @post= Post.where(:id => params[:id]) || Post.new
     render :layout => 'application'
   end
 
   private
+
+  def posts_params
+    params.permit(:admin_id, :subject, :message, :search, :admin_id, :search, :page, :status, :truncate_character )
+  end
 
   def find_post
     @post = Post.find(params[:id])

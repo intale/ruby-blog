@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @comment = @post.comments.build(params[:comment])
+    @comment = @post.comments.build(users_params)
     @comment.current_admin = current_admin
 
     if @comment.valid_with_captcha? and @comment.save
@@ -21,8 +21,12 @@ class UsersController < ApplicationController
 
   private
 
+  def users_params
+    params.permit(:page, :comment)
+  end
+
   def find_post
-    unless @post = Post.includes(:tags,:comments).enabled.find_by_id(params[:id])
+    unless @post = Post.includes(:tags,:comments).enabled.find_by(:id => users_params)
       redirect_to root_path
       flash[:error] = "Post not found"
     end

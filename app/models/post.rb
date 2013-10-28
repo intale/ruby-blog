@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  attr_protected :admin_id
 
   belongs_to :admin
   has_many :comments, :dependent => :destroy
@@ -14,7 +13,7 @@ class Post < ActiveRecord::Base
     self.message = Nokogiri::HTML.parse(self.message).search("body").inner_html
   end
 
-  scope :enabled, lambda{ where(" \"posts\".status = 'false' ") }
+  scope :enabled, -> { where(" \"posts\".status = 'false' ")}
 
   def to_param
     "#{id}-#{RusAlpha.translate(subject.to_s).parameterize}"
