@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def find_post
-    unless @post = Post.includes(:tags,:comments).enabled.find_by(:id => users_params)
+    unless @post = Post.includes(:tags,:comments).enabled.find_by(:id => params[:id])
       redirect_to root_path
       flash[:error] = "Post not found"
     end

@@ -14,3 +14,23 @@ set :shared_path, "#{deploy_to}/shared"
 set :branch, 'master'
 
 set :user, 'admin'
+
+
+namespace :deploy do
+  task :start, roles: :app do
+        run "cd #{current_path} && bundle exec unicorn -c #{fetch(:unicorn_conf)} -E #{fetch(:rails_env)} -D"
+  end
+
+  task :stop, roles: :app do
+      exec "kill -s TERM `cat #{fetch(:unicorn_pid)}` || true"
+  end
+
+  task :restart, roles: :app do #Silence restart
+      exec "kill -s USR2 `cat #{fetch(:unicorn_pid)}` || true"
+  end
+
+  task :full_restart do
+    invoke 'deploy:stop'
+    invoke 'deploy:start'
+  end
+end
