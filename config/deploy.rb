@@ -10,7 +10,7 @@ ssh_options[:forward_agent] = true
 ssh_options[:auth_methods] = ['publickey']
 
 set :scm, :git # Using git.
-set :repository,  'git@github.com:SBS-team/ruby-blog.git' # Path to your repository
+set :repository,  'git@github.com:intale/ruby-blog.git' # Path to your repository
 set :deploy_via, :remote_cache # Using cache. Deploying only changes.
 
 set :stages,          %w(preproduction production)
@@ -35,6 +35,7 @@ namespace :config do
     run "ln -nfs #{shared_path}/#{stage}.yml #{release_path}/config/environments/#{stage}.yml"
     run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+    run "ln -nfs #{shared_path}/ckeditor_assets #{release_path}/public/ckeditor_assets"
     run "ln -nfs #{shared_path}/unicorn_pre.rb #{release_path}/config/unicorn_pre.rb"
     run "ln -nfs #{shared_path}/application.yml #{release_path}/config/application.yml"
   end
@@ -43,6 +44,7 @@ namespace :config do
     run "touch -m #{shared_path}/#{stage}.yml"
     run "touch -m #{shared_path}/database.yml"
     run "mkdir -p #{shared_path}/uploads"
+    run "mkdir -p #{shared_path}/ckeditor_assets"
     run "touch -m #{shared_path}/unicorn_pre.rb"
   end
 end
