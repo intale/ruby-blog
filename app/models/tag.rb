@@ -5,7 +5,6 @@ class Tag < ActiveRecord::Base
   before_save :normalize_tag
 
   private
-
   def normalize_tag
     self.name.strip!
     self.name.gsub!(/[^\w|^\s]/, "_")

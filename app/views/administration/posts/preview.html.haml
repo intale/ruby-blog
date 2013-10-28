@@ -2,7 +2,7 @@
   .center
     .item
       %h2
-        =@post.subject
+        = @post.subject
       .by
         = "Posted by #{current_admin.nick}@#{Time.now}"
       #post-body
