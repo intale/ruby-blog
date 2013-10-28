@@ -1,5 +1,4 @@
 class Administration::TagsController < Administration::MainController
-
     before_filter :find_post, :only => [:create, :destroy]
     before_filter :find_tag, :only => [:edit, :update, :destroy!, :destroy]
 
@@ -9,7 +8,7 @@ class Administration::TagsController < Administration::MainController
   end
 
   def create
-    tag = Tag.find_or_create_by(:name => tag_params)
+    tag = Tag.find_or_create_by_name(params[:tags])
     unless @post.nil? or @post.tags.exists?(tag)
       @post.tags << tag
       result = {:tag => render_to_string(:partial => 'tag', :locals =>{:tag => tag, :post => @post})}
@@ -50,7 +49,7 @@ class Administration::TagsController < Administration::MainController
   private
 
   def tag_params
-    params.permit(:name, :post_id, :q, :search, :page)
+    params.permit(:name ,:post_id, :q, :search, :page)
   end
 
   def find_post
@@ -58,7 +57,7 @@ class Administration::TagsController < Administration::MainController
   end
 
   def find_tag
-    unless @tag = Tag.find_by(:id => tag_params)
+    unless @tag = Tag.find_by_id(params[:id])
       flash[:error] = "Tag with id #{params[:id]} not found"
       redirect_to administration_tags_path unless request.xhr?
     end

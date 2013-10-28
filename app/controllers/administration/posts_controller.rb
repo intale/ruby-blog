@@ -48,7 +48,7 @@ class Administration::PostsController < Administration::MainController
 
   def preview
     @tags = []
-    @post= Post.where(:id => params[:id]) || Post.new
+    @post= Post.where(:id=>params[:id]).first || Post.new
     render :layout => 'application'
   end
 
