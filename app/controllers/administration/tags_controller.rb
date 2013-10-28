@@ -8,7 +8,7 @@ class Administration::TagsController < Administration::MainController
   end
 
   def create
-    tag = Tag.find_or_create_by_name(params[:tags])
+    tag = Tag.find_or_create_by_name(tag_params)
     unless @post.nil? or @post.tags.exists?(tag)
       @post.tags << tag
       result = {:tag => render_to_string(:partial => 'tag', :locals =>{:tag => tag, :post => @post})}
@@ -49,7 +49,7 @@ class Administration::TagsController < Administration::MainController
   private
 
   def tag_params
-    params.permit(:name ,:post_id, :q, :search, :page)
+    params.require(:tags).permit(:name ,:post_id, :q, :search, :page)
   end
 
   def find_post
