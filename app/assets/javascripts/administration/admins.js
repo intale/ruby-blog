@@ -13,7 +13,6 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#tag-form').submit(function() {
         var data = $(this).serialize();
-        console.log(data);
         $.ajax({
             type: "POST",
             data: data,
