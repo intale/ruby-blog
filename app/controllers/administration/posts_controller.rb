@@ -31,7 +31,6 @@ class Administration::PostsController < Administration::MainController
 
   def create
     @post = current_admin.posts.build(posts_params[:post])
-    puts posts_params
     if @post.save
       flash[:notice] = "Post successfully saved"
       redirect_to administration_post_path(@post)
