@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   validates :admin_id, :subject, :message, :presence => true
   validates :truncate_character, :numericality => {:only_integer => true, :grater_than => 0}
 
-  before_save :update_post_message
+  #before_save :update_post_message
 
   def update_post_message
     self.message = Nokogiri::HTML.parse(self.message).search("body").inner_html
