@@ -4,15 +4,15 @@
     = form_for @search, :url => administration_tags_path, :html => {:method => :get} do |f|
       %p
         %h4 Tag:
-        = f.text_field :name#_contains
+        = f.text_field :name_cont
 
       %h3 Search params:
       .search_attr
         %p
-          = f.check_box :status#_is_true
+          = f.check_box :status_true
           = f.label :status, "Hidden "
         %p
-          = f.check_box :status#_is_false
+          = f.check_box :status_false
           = f.label :status, "Unhidden "
 
       %p
