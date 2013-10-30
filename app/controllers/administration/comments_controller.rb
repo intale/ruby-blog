@@ -15,7 +15,7 @@ class Administration::CommentsController < Administration::MainController
 
   def update
     @comment.current_admin=current_admin
-    if @comment.update_attributes(comment_params)
+    if @comment.update_attributes(params.require(:comment).permit(:author, :content))
       flash[:notice] = "Comment updated successfully"
       redirect_to administration_post_path(@comment.post)
     else
@@ -43,17 +43,12 @@ class Administration::CommentsController < Administration::MainController
   private
 
   def comment_params
-  #.require(:comment)
     params.permit(:post_id, :content, :author, :search, :page, :comment)
   end
 
-  #def comment_params2
-  #  params.require(:comment).permit(:post_id, :content, :author, :search, :page, :comment)
-  #end
-
   def build_comment
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(comment_params)
+    @comment = @post.comments.build(params[:comment] ? params.require(:comment).permit(:author, :content) : {})
     @comment.current_admin=current_admin.id
   end
 

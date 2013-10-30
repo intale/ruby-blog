@@ -15,6 +15,8 @@ class Comment < ActiveRecord::Base
 
   def notify_admin
     AdminMailer.comment_notifier(id).deliver
+  rescue
+    nil
   end
 
   def check_author
