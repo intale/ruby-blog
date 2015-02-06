@@ -10,23 +10,20 @@ set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
  
 set :shared_path, "#{deploy_to}/shared"
 
-#set :branch, 'master'
 set :branch, 'master'
-
-set :user, 'admin'
 
 
 namespace :deploy do
-  task :start, roles: :app do
+  task :start do
         run "cd #{current_path} && bundle exec unicorn -c #{fetch(:unicorn_conf)} -E #{fetch(:rails_env)} -D"
   end
 
-  task :stop, roles: :app do
-      exec "kill -s TERM `cat #{fetch(:unicorn_pid)}` || true"
+  task :stop do
+    run "kill -s TERM `cat #{fetch(:unicorn_pid)}` || true"
   end
 
-  task :restart, roles: :app do #Silence restart
-      exec "kill -s USR2 `cat #{fetch(:unicorn_pid)}` || true"
+  task :restart do #Silence restart
+      run "kill -s USR2 `cat #{fetch(:unicorn_pid)}` || true"
   end
 
   task :full_restart do
