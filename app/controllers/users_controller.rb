@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.permit(:page, :comment)
+    params.require(:comment).permit(:captcha, :captcha_key, :content, :author)
   end
 
   def find_post

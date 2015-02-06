@@ -1,9 +1,9 @@
 class SearchController < ApplicationController
   before_filter :set_request
   def index
-    @is_posts=search_params[:category]=="in posts"
+    @is_posts = search_params[:category] == "in posts"
     if @is_posts
-      @search = Post.enabled.includes(:tags, :admin).search(:message_or_subject_cont => @search_request)
+      @search = Post.enabled.preload(:tags, :admin).search(:message_or_subject_cont => @search_request)
       @find = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
     else
       @search = Comment.search(:content_contains => @search_request)#.paginate(:per_page => 10, :page => params[:page])

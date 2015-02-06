@@ -11,6 +11,7 @@ development:
       password: ""
       authentication: "plain"
       enable_starttls_auto: true
+  devise_secret_key: YOUR_DEVISE_SECRET_KEY
 
 production:
   mailer:
@@ -25,3 +26,4 @@ production:
       password: ""
       authentication: "plain"
       enable_starttls_auto: true
+  devise_secret_key: YOUR_DEVISE_SECRET_KEY

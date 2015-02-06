@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_all_tags
-    @tags = Tag.where("status='false'")
+    @tags = Tag.where(:status => false)
   end
   protected
 

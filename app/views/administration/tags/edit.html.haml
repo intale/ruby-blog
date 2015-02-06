@@ -8,7 +8,7 @@
       = t("web-app-theme.edit", :default => "Edit")
       = "Tag #{@tag.name}"
     .inner
-      = form_for @tag, :url => administration_tag_path(@admin), :html => { :class => :form } do |f|
+      = form_for @tag, :url => administration_tag_path(current_admin), :html => { :class => :form } do |f|
         .group
           =f.label :name
           =f.text_field :name

@@ -14,7 +14,7 @@ class Administration::CommentsController < Administration::MainController
   end
 
   def update
-    @comment.current_admin=current_admin
+    @comment.current_admin = current_admin
     if @comment.update_attributes(params.require(:comment).permit(:author, :content))
       flash[:notice] = "Comment updated successfully"
       redirect_to administration_post_path(@comment.post)

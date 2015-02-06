@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '= 4.0.0'
+gem 'rails', '= 4.2.0'
 
 # Bundle edge Rails instead:
 gem 'ransack' # instead of Meta-search
@@ -15,7 +15,7 @@ gem 'uglifier'
 gem 'web-app-theme'
 gem 'therubyracer'
 gem 'jquery-rails'
-gem 'devise', '3.0.0.rc'#, :github => 'plataformatec/devise'
+gem 'devise', '3.4.1'#, :github => 'plataformatec/devise'
 gem 'devise-encryptable'
 gem 'haml'
 gem 'ruby_parser'

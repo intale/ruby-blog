@@ -1,7 +1,7 @@
 .block.notice
   %h3 Search
   .post_search
-    = form_for @search, :url => administration_posts_path, :html => {:method => :get} do |f|
+    = form_for :post, :url => administration_posts_path, :html => {:method => :get} do |f|
       .search_attr
         %p
           = f.label :created_at, "Begin Date "

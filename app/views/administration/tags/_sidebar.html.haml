@@ -1,7 +1,7 @@
 .block.notice
   %h3 Search
   .tag_search
-    = form_for @search, :url => administration_tags_path, :html => {:method => :get} do |f|
+    = form_for :comment, :url => administration_tags_path, :html => {:method => :get} do |f|
       %p
         %h4 Tag:
         = f.text_field :name_cont

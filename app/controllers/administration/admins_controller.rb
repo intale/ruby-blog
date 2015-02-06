@@ -56,7 +56,8 @@ class Administration::AdminsController < Administration::MainController
   private
 
   def admin_params
-    params.require(:admin).permit(:email, :password, :password_confirmation, :remember_me, :username, :nick, :avatar, :subscribe, :search, :page )
+    params[:admin].present? &&
+      params.require(:admin).permit(:email, :password, :password_confirmation, :remember_me, :username, :nick, :avatar, :subscribe, :search, :page )
   end
 
   def find_admin
